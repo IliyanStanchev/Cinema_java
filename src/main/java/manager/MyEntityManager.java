@@ -16,6 +16,7 @@ public class MyEntityManager {
         EntityTransaction tx = entityManager.getTransaction();
         try
         {
+            //comment added
             tx.begin();
             action.accept(entityManager);
             tx.commit();
