@@ -27,6 +27,8 @@ User
     @Column(name="phone_number", unique = true)
     private String phoneNumber;
 
+    @ManyToOne
+    private Role role;
 
     public User()
     {

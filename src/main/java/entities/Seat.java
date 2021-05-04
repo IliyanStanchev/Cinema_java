@@ -17,7 +17,7 @@ public class Seat {
 
     public Seat() {}
 
-   public Seat(int seatNumber, Row row) {
+    public Seat(int seatNumber, Row row) {
         this.seatNumber = seatNumber;
         this.row = row;
     }
