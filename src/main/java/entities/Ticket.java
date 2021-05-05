@@ -29,9 +29,18 @@ public class Ticket {
         this.seat = seat;
     }
 
-    public int getId() {
-        return id;
+    @Override
+    public String toString() {
+        return "Ticket{" +
+                "id=" + id +
+                ", price=" + price +
+                ", user=" + user +
+                ", showtime=" + showtime +
+                ", seat=" + seat +
+                '}';
     }
+
+    public int getId() { return id; }
 
     public int getPrice() {
         return price;

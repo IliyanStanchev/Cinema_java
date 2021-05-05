@@ -18,6 +18,14 @@ public class MovieDimension {
         this.dimension = dimension;
     }
 
+    @Override
+    public String toString() {
+        return "MovieDimension{" +
+                "id=" + id +
+                ", dimension='" + dimension + '\'' +
+                '}';
+    }
+
     public void setId(int id) {
         this.id = id;
     }

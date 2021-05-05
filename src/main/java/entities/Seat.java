@@ -22,6 +22,14 @@ public class Seat {
         this.row = row;
     }
 
+    @Override
+    public String toString() {
+        return "Seat{" +
+                "id=" + id +
+                ", seatNumber=" + seatNumber +
+                ", row=" + row +
+                '}';
+    }
 
     public int getId() {
         return id;
@@ -46,4 +54,6 @@ public class Seat {
     public void setRow(Row row) {
        this.row = row;
    }
+
+
 }

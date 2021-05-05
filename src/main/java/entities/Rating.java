@@ -25,6 +25,16 @@ public class Rating {
         this.rating = rating;
     }
 
+    @Override
+    public String toString() {
+        return "Rating{" +
+                "id=" + id +
+                ", numberOfRatings=" + numberOfRatings +
+                ", sumOfRatings=" + sumOfRatings +
+                ", rating=" + rating +
+                '}';
+    }
+
     public void setId(int id) {
         this.id = id;
     }

@@ -23,6 +23,15 @@ public class Row {
         this.numberOfSeats = numberOfSeats;
     }
 
+    @Override
+    public String toString() {
+        return "Row{" +
+                "id=" + id +
+                ", rowNumber=" + rowNumber +
+                ", numberOfSeats=" + numberOfSeats +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

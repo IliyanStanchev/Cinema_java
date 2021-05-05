@@ -1,5 +1,10 @@
 package sample;
 
+import dao.AgeRestrictionDAO;
+import dao.BaseDAO;
+import dao.RowDAO;
+import dao.SeatDAO;
+import entities.AgeRestriction;
 import entities.Row;
 import entities.Seat;
 import javafx.application.Application;
@@ -11,6 +16,7 @@ import manager.MyEntityManager;
 import entities.User;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -45,8 +51,26 @@ public class Main extends Application {
         seat1=(Seat) MyEntityManager.saveOrUpdate(seat1);
         seat2=(Seat) MyEntityManager.saveOrUpdate(seat2);
 
-    }
+        BaseDAO<Seat> dao2 = new SeatDAO();
+        List<Seat> list2 = dao2.getAll();
+        for(Seat s : list2) {
+            System.out.printf(s.toString());
+        }
 
+        BaseDAO<Row> dao1 = new RowDAO();
+        List<Row> list1 = dao1.getAll();
+        for(Row r : list1) {
+            System.out.printf(r.toString());
+        }
+
+        AgeRestriction ageRestriction = new AgeRestriction("PG16", 16);
+        ageRestriction=(AgeRestriction) MyEntityManager.saveOrUpdate(ageRestriction);
+        BaseDAO<AgeRestriction> dao3 = new AgeRestrictionDAO();
+        List<AgeRestriction> list3 = dao3.getAll();
+        for(AgeRestriction ar : list3) {
+            System.out.printf(ar.toString());
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

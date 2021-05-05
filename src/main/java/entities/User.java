@@ -30,10 +30,7 @@ User
     @ManyToOne
     private Role role;
 
-    public User()
-    {
-
-    }
+    public User() {}
 
     public User(String email, String username, String password, String firstName, String secondName, String phoneNumber) {
         this.email = email;
@@ -42,6 +39,20 @@ User
         this.firstName = firstName;
         this.secondName = secondName;
         this.phoneNumber = phoneNumber;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", email='" + email + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", secondName='" + secondName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", role=" + role +
+                '}';
     }
 
     public int getId() {

@@ -32,6 +32,18 @@ public class Movie {
         this.ageRestriction = ageRestriction;
     }
 
+    @Override
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", description='" + description + '\'' +
+                ", genre=" + genre +
+                ", rating=" + rating +
+                ", ageRestriction=" + ageRestriction +
+                '}';
+    }
+
     public int getId() {
         return id;
     }

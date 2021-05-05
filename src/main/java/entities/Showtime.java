@@ -31,6 +31,18 @@ public class Showtime {
         this.movieDimension = movieDimension;
     }
 
+    @Override
+    public String toString() {
+        return "Showtime{" +
+                "id=" + id +
+                ", date='" + date + '\'' +
+                ", startTime='" + startTime + '\'' +
+                ", endTime='" + endTime + '\'' +
+                ", movie=" + movie +
+                ", movieDimension=" + movieDimension +
+                '}';
+    }
+
     public int getId() {
         return id;
     }
