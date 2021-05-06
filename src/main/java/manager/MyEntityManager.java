@@ -27,7 +27,7 @@ public class MyEntityManager {
         }
     }
 
-    public static Object saveOrUpdate(Object o)
+   /* public static Object saveOrUpdate(Object o)
     {
         EntityTransaction tx = entityManager.getTransaction();
         try
@@ -45,7 +45,7 @@ public class MyEntityManager {
             return null;
         }
         return o;
-    }
+    }*/
 
     public static EntityManager getEntityManager()
     {

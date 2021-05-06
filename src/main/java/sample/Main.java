@@ -1,9 +1,6 @@
 package sample;
 
-import dao.AgeRestrictionDAO;
-import dao.BaseDAO;
-import dao.RowDAO;
-import dao.SeatDAO;
+import dao.*;
 import entities.AgeRestriction;
 import entities.Row;
 import entities.Seat;
@@ -28,11 +25,23 @@ public class Main extends Application {
         User user = new User("ench3r@gmail.com", "sach","123","iliyan", "stanchev","0897875640");
         //Добавяме един запис
 
-        user = (User)MyEntityManager.saveOrUpdate(user);
+       /* user = (User)MyEntityManager.saveOrUpdate(user);
 
         user.setEmail("newEmail@gmail.com");
 
         user = (User)MyEntityManager.saveOrUpdate(user);
+
+        if(user == null){
+            System.out.println("Something went wrong.");
+            return;
+        }*/
+
+        BaseDAO<User> userDAO = new UserDAO();
+        user = userDAO.saveOrUpdate(user);
+
+        user.setEmail("newEmail@gmail.com");
+
+        user = userDAO.saveOrUpdate(user);
 
         if(user == null){
             System.out.println("Something went wrong.");
@@ -44,32 +53,41 @@ public class Main extends Application {
         primaryStage.setScene(new Scene(root, 300, 275));
         primaryStage.show();
 
+        BaseDAO<Seat> seatDao = new SeatDAO();
+        BaseDAO<Row> rowDao = new RowDAO();
+        
         Row row = new Row(1, 10);
-        row=(Row) MyEntityManager.saveOrUpdate(row);
+        row=rowDao.saveOrUpdate(row);
         Seat seat1 = new Seat(1, row);
         Seat seat2 = new Seat(2, row);
-        seat1=(Seat) MyEntityManager.saveOrUpdate(seat1);
-        seat2=(Seat) MyEntityManager.saveOrUpdate(seat2);
+        seat1=seatDao.saveOrUpdate(seat1);
+        seat2=seatDao.saveOrUpdate(seat2);
 
-        BaseDAO<Seat> dao2 = new SeatDAO();
-        List<Seat> list2 = dao2.getAll();
+       
+        List<Seat> list2 = seatDao.getAll();
         for(Seat s : list2) {
             System.out.printf(s.toString());
         }
 
-        BaseDAO<Row> dao1 = new RowDAO();
-        List<Row> list1 = dao1.getAll();
+       
+        List<Row> list1 = rowDao.getAll();
         for(Row r : list1) {
             System.out.printf(r.toString());
         }
 
+        BaseDAO<AgeRestriction> ageDao = new AgeRestrictionDAO();
         AgeRestriction ageRestriction = new AgeRestriction("PG16", 16);
-        ageRestriction=(AgeRestriction) MyEntityManager.saveOrUpdate(ageRestriction);
-        BaseDAO<AgeRestriction> dao3 = new AgeRestrictionDAO();
-        List<AgeRestriction> list3 = dao3.getAll();
+        ageRestriction=ageDao.saveOrUpdate(ageRestriction);
+        List<AgeRestriction> list3 = ageDao.getAll();
         for(AgeRestriction ar : list3) {
             System.out.printf(ar.toString());
         }
+
+        seat2= seatDao.getById(1);
+        System.out.println(seat2);
+
+        seat2=seatDao.getById(2);
+        seatDao.deleteById(2);
     }
 
     public static void main(String[] args) {
