@@ -19,7 +19,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader=new FXMLLoader(getClass().getResource("/sample.fxml"));
+        FXMLLoader loader=new FXMLLoader(getClass().getResource("/Login.fxml"));
 
         EntityManager entityManager = MyEntityManager.getEntityManager();
         User user = new User("ench3r@gmail.com", "sach","123","iliyan", "stanchev","0897875640");
@@ -50,7 +50,7 @@ public class Main extends Application {
 
         Parent root = loader.load();
         primaryStage.setTitle("My id is: "+ user.getId() + "And email: "+ user.getEmail());
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.setScene(new Scene(root, 700, 500));
         primaryStage.show();
 
         BaseDAO<Seat> seatDao = new SeatDAO();
