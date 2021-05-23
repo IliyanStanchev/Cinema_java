@@ -15,7 +15,8 @@ public class Seat {
     @ManyToOne
     private Row row;
 
-    public Seat() {}
+    public Seat() {
+    }
 
     public Seat(int seatNumber, Row row) {
         this.seatNumber = seatNumber;
@@ -35,25 +36,25 @@ public class Seat {
         return id;
     }
 
-    public int getSeatNumber() {
-        return seatNumber;
-    }
-
-    public Row getRow() {
-        return row;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public int getSeatNumber() {
+        return seatNumber;
     }
 
     public void setSeatNumber(int seatNumber) {
         this.seatNumber = seatNumber;
     }
 
+    public Row getRow() {
+        return row;
+    }
+
     public void setRow(Row row) {
-       this.row = row;
-   }
+        this.row = row;
+    }
 
 
 }

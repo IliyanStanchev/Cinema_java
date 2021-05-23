@@ -12,7 +12,8 @@ public class MovieDimension {
 
     private String dimension;
 
-    public MovieDimension() {}
+    public MovieDimension() {
+    }
 
     public MovieDimension(String dimension) {
         this.dimension = dimension;
@@ -26,19 +27,19 @@ public class MovieDimension {
                 '}';
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setDimension(String dimension) {
-        this.dimension = dimension;
-    }
-
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getDimension() {
         return dimension;
+    }
+
+    public void setDimension(String dimension) {
+        this.dimension = dimension;
     }
 }

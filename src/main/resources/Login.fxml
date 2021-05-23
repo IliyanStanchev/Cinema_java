@@ -3,62 +3,65 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.LoginController">
-   <left>
-      <AnchorPane prefHeight="500.0" prefWidth="320.0" style="-fx-background-color: #d62bd1;" BorderPane.alignment="CENTER">
-         <children>
-            <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="85.0" layoutY="139.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@Images/CinemaIcon.png" />
-               </image>
-            </ImageView>
-            <Text layoutX="76.0" layoutY="332.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cinema Vision">
-               <font>
-                  <Font name="Freestyle Script" size="50.0" />
-               </font>
-            </Text>
-            <Text layoutX="126.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome">
-               <font>
-                  <Font name="Freestyle Script" size="31.0" />
-               </font>
-            </Text>
-         </children></AnchorPane>
-   </left>
-   <center>
-      <AnchorPane prefHeight="500.0" prefWidth="417.0" BorderPane.alignment="CENTER">
-         <children>
-            <TextField fx:id="usernameField" layoutX="116.0" layoutY="203.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;" />
-            <PasswordField fx:id="passwordField" layoutX="116.0" layoutY="248.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;" />
-            <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="71.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/UserIcon.png" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="71.0" layoutY="248.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/PasswordIcon.png" />
-               </image>
-            </ImageView>
-            <Button fx:id="btnLogin" layoutX="115.0" layoutY="325.0" mnemonicParsing="false" onAction="#Login" prefHeight="34.0" prefWidth="152.0" style="-fx-background-color: #d62bd1;" text="Login" textFill="WHITE" />
-            <Hyperlink fx:id="hyperSignUp" layoutX="167.0" layoutY="434.0" onAction="#Register" text="Sign up" textFill="#d62bd1" />
-            <ImageView fitHeight="95.0" fitWidth="106.0" layoutX="143.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/UsersIcon.png" />
-               </image>
-            </ImageView>
-            <Text fill="#d62bd1" layoutX="140.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Login" wrappingWidth="100.513671875">
-               <font>
-                  <Font size="21.0" />
-               </font>
-            </Text>
-            <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="376.0" prefHeight="18.0" prefWidth="148.0" textFill="#fa0000">
-               <font>
-                  <Font size="13.0" />
-               </font>
-            </Label>
-         </children>
-      </AnchorPane>
-   </center>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/8.0.281"
+            fx:controller="controllers.LoginController">
+    <left>
+        <AnchorPane prefHeight="500.0" prefWidth="320.0" style="-fx-background-color: #d62bd1;"
+                    BorderPane.alignment="CENTER">
+            <children>
+                <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="85.0" layoutY="139.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/CinemaIcon.png"/>
+                    </image>
+                </ImageView>
+                <Text layoutX="117.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cinema">
+                    <font>
+                        <Font size="26.0"/>
+                    </font>
+                </Text>
+            </children>
+        </AnchorPane>
+    </left>
+    <center>
+        <AnchorPane prefHeight="500.0" prefWidth="417.0" BorderPane.alignment="CENTER">
+            <children>
+                <TextField fx:id="usernameField" layoutX="116.0" layoutY="203.0" promptText="Username"
+                           style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
+                <PasswordField fx:id="passwordField" layoutX="116.0" layoutY="248.0" promptText="Password"
+                               style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
+                <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="71.0" layoutY="203.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/UserIcon.png"/>
+                    </image>
+                </ImageView>
+                <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="71.0" layoutY="248.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/PasswordIcon.png"/>
+                    </image>
+                </ImageView>
+                <Button layoutX="115.0" layoutY="325.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0"
+                        prefWidth="152.0" style="-fx-background-color: #d62bd1;" text="Login" textFill="WHITE"/>
+                <Hyperlink layoutX="167.0" layoutY="434.0" onAction="#register" text="Sign up" textFill="#d62bd1"/>
+                <ImageView fitHeight="95.0" fitWidth="106.0" layoutX="143.0" layoutY="47.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/UsersIcon.png"/>
+                    </image>
+                </ImageView>
+                <Text fill="#d62bd1" layoutX="140.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="User Login" wrappingWidth="100.513671875">
+                    <font>
+                        <Font size="21.0"/>
+                    </font>
+                </Text>
+                <Label fx:id="resultLabel" layoutX="177.0" layoutY="379.0"/>
+            </children>
+        </AnchorPane>
+    </center>
 </BorderPane>

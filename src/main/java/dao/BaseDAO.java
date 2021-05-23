@@ -1,7 +1,6 @@
 package dao;
 
 import manager.MyEntityManager;
-import org.hibernate.Session;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -13,7 +12,8 @@ public class BaseDAO<EntityClass> {
 
     protected String tableName;
 
-    public BaseDAO() {}
+    public BaseDAO() {
+    }
 
     public List<EntityClass> getAll() {
 
@@ -21,7 +21,7 @@ public class BaseDAO<EntityClass> {
         List<EntityClass> collection = new ArrayList();
         String queryString = "SELECT " + firstLetter + " FROM " + tableName + " " + firstLetter;
         Query query = MyEntityManager.getEntityManager().createQuery(queryString);
-        collection=query.getResultList();
+        collection = query.getResultList();
         return collection;
     }
 
@@ -29,27 +29,24 @@ public class BaseDAO<EntityClass> {
 
         String firstLetter = Character.toString(tableName.charAt(0));
         String queryString = "SELECT " + firstLetter + " FROM " + tableName + " " + firstLetter + " WHERE " + firstLetter + ".id=" + id;
-        Query query=MyEntityManager.getEntityManager().createQuery(queryString);
+        Query query = MyEntityManager.getEntityManager().createQuery(queryString);
         EntityClass obj = (EntityClass) query.getSingleResult();
         return obj;
     }
 
 
-    public EntityClass saveOrUpdate(EntityClass obj)
-    {
+    public EntityClass saveOrUpdate(EntityClass obj) {
         EntityManager entityManager = MyEntityManager.getEntityManager();
         EntityTransaction tx = entityManager.getTransaction();
-        try
-        {
+        try {
             tx.begin();
-            if(entityManager.contains(obj))
+            if (entityManager.contains(obj))
                 entityManager.merge(obj);
 
             entityManager.persist(obj);
             entityManager.flush();
             tx.commit();
-        } catch (RuntimeException e)
-        {
+        } catch (RuntimeException e) {
             tx.rollback();
             return null;
         }
@@ -62,10 +59,10 @@ public class BaseDAO<EntityClass> {
         MyEntityManager.getEntityManager().remove(obj);
     }
 
-  //  public EntityClass save(EntityClass obj) {}
+    //  public EntityClass save(EntityClass obj) {}
 
-   // public EntityClass update(EntityClass obj) {}
+    // public EntityClass update(EntityClass obj) {}
 
-   // public EntityClass delete(int id) {}
+    // public EntityClass delete(int id) {}
 
 }

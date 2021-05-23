@@ -20,7 +20,8 @@ public class Ticket {
     @ManyToOne
     private Seat seat;
 
-    public Ticket() {}
+    public Ticket() {
+    }
 
     public Ticket(int price, User user, Showtime showtime, Seat seat) {
         this.price = price;
@@ -40,38 +41,40 @@ public class Ticket {
                 '}';
     }
 
-    public int getId() { return id; }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public Showtime getShowtime() {
-        return showtime;
-    }
-
-    public Seat getSeat() {
-        return seat;
+    public int getId() {
+        return id;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
+    public int getPrice() {
+        return price;
+    }
+
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public User getUser() {
+        return user;
     }
 
     public void setUser(User user) {
         this.user = user;
     }
 
+    public Showtime getShowtime() {
+        return showtime;
+    }
+
     public void setShowtime(Showtime showtime) {
         this.showtime = showtime;
+    }
+
+    public Seat getSeat() {
+        return seat;
     }
 
     public void setSeat(Seat seat) {

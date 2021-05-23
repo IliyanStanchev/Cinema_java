@@ -22,7 +22,8 @@ public class Movie {
     @ManyToOne
     private AgeRestriction ageRestriction;
 
-    public Movie() {}
+    public Movie() {
+    }
 
     public Movie(String title, String description, Genre genre, Rating rating, AgeRestriction ageRestriction) {
         this.title = title;
@@ -48,44 +49,44 @@ public class Movie {
         return id;
     }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public Genre getGenre() {
-        return genre;
-    }
-
-    public Rating getRating() {
-        return rating;
-    }
-
-    public AgeRestriction getAgeRestriction() {
-        return ageRestriction;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getTitle() {
+        return title;
     }
 
     public void setTitle(String title) {
         this.title = title;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Genre getGenre() {
+        return genre;
     }
 
     public void setGenre(Genre genre) {
         this.genre = genre;
     }
 
+    public Rating getRating() {
+        return rating;
+    }
+
     public void setRating(Rating rating) {
         this.rating = rating;
+    }
+
+    public AgeRestriction getAgeRestriction() {
+        return ageRestriction;
     }
 
     public void setAgeRestriction(AgeRestriction ageRestriction) {

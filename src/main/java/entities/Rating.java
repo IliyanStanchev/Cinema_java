@@ -17,7 +17,8 @@ public class Rating {
 
     private int rating;
 
-    public Rating() {}
+    public Rating() {
+    }
 
     public Rating(int numberOfRatings, int sumOfRatings, int rating) {
         this.numberOfRatings = numberOfRatings;
@@ -35,35 +36,35 @@ public class Rating {
                 '}';
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setNumberOfRatings(int numberOfRatings) {
-        this.numberOfRatings = numberOfRatings;
-    }
-
-    public void setSumOfRatings(int sumOfRatings) {
-        this.sumOfRatings = sumOfRatings;
-    }
-
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
-
     public int getId() {
         return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getNumberOfRatings() {
         return numberOfRatings;
     }
 
+    public void setNumberOfRatings(int numberOfRatings) {
+        this.numberOfRatings = numberOfRatings;
+    }
+
     public int getSumOfRatings() {
         return sumOfRatings;
     }
 
+    public void setSumOfRatings(int sumOfRatings) {
+        this.sumOfRatings = sumOfRatings;
+    }
+
     public int getRating() {
         return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

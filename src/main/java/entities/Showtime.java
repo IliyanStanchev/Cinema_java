@@ -21,7 +21,8 @@ public class Showtime {
     @ManyToOne
     private MovieDimension movieDimension;
 
-    public Showtime() {}
+    public Showtime() {
+    }
 
     public Showtime(String date, String startTime, String endTime, Movie movie, MovieDimension movieDimension) {
         this.date = date;
@@ -47,44 +48,44 @@ public class Showtime {
         return id;
     }
 
-    public String getDate() {
-        return date;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public Movie getMovie() {
-        return movie;
-    }
-
-    public MovieDimension getMovieDimension() {
-        return movieDimension;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getDate() {
+        return date;
     }
 
     public void setDate(String date) {
         this.date = date;
     }
 
+    public String getStartTime() {
+        return startTime;
+    }
+
     public void setStartTime(String startTime) {
         this.startTime = startTime;
+    }
+
+    public String getEndTime() {
+        return endTime;
     }
 
     public void setEndTime(String endTime) {
         this.endTime = endTime;
     }
 
+    public Movie getMovie() {
+        return movie;
+    }
+
     public void setMovie(Movie movie) {
         this.movie = movie;
+    }
+
+    public MovieDimension getMovieDimension() {
+        return movieDimension;
     }
 
     public void setMovieDimension(MovieDimension movieDimension) {

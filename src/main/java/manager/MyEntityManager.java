@@ -11,17 +11,14 @@ public class MyEntityManager {
     private static final EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("default");
     private static final EntityManager entityManager = entityManagerFactory.createEntityManager();
 
-    public static void executeInsideTransaction(Consumer<EntityManager> action)
-    {
+    public static void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction tx = entityManager.getTransaction();
-        try
-        {
+        try {
             //comment added
             tx.begin();
             action.accept(entityManager);
             tx.commit();
-        } catch (RuntimeException e)
-        {
+        } catch (RuntimeException e) {
             tx.rollback();
             throw e;
         }
@@ -47,8 +44,7 @@ public class MyEntityManager {
         return o;
     }*/
 
-    public static EntityManager getEntityManager()
-    {
+    public static EntityManager getEntityManager() {
         return entityManager;
     }
 

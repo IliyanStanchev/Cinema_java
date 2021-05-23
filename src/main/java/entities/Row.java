@@ -16,7 +16,8 @@ public class Row {
     @Column(name = "seats_count")
     private int numberOfSeats;
 
-    public Row() {}
+    public Row() {
+    }
 
     public Row(int rowNumber, int numberOfSeats) {
         this.rowNumber = rowNumber;
@@ -36,20 +37,20 @@ public class Row {
         return id;
     }
 
-    public int getRowNumber() {
-        return rowNumber;
-    }
-
-    public int getNumberOfSeats() {
-        return numberOfSeats;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
+    public int getRowNumber() {
+        return rowNumber;
+    }
+
     public void setRowNumber(int rowNumber) {
         this.rowNumber = rowNumber;
+    }
+
+    public int getNumberOfSeats() {
+        return numberOfSeats;
     }
 
     public void setNumberOfSeats(int numberOfSeats) {

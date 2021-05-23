@@ -12,7 +12,8 @@ public class Role {
     @Column(name = "role_name")
     private String roleName;
 
-    public Role() {}
+    public Role() {
+    }
 
     public Role(String roleName) {
         this.roleName = roleName;
@@ -26,19 +27,19 @@ public class Role {
                 '}';
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
-    }
-
     public int getId() {
         return id;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public String getRoleName() {
         return roleName;
+    }
+
+    public void setRoleName(String roleName) {
+        this.roleName = roleName;
     }
 }

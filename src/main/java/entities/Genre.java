@@ -12,7 +12,8 @@ public class Genre {
     @Column(name = "genre_name")
     private String genreName;
 
-    public Genre() {}
+    public Genre() {
+    }
 
     public Genre(String genreName) {
         this.genreName = genreName;
@@ -30,12 +31,12 @@ public class Genre {
         return id;
     }
 
-    public String getGenreName() {
-        return genreName;
-    }
-
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getGenreName() {
+        return genreName;
     }
 
     public void setGenreName(String genreName) {

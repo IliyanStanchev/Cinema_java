@@ -14,7 +14,8 @@ public class AgeRestriction {
 
     private int minAge;
 
-    public AgeRestriction() {}
+    public AgeRestriction() {
+    }
 
     public AgeRestriction(String restrictionName, int minAge) {
         this.restrictionName = restrictionName;
@@ -34,20 +35,20 @@ public class AgeRestriction {
         return id;
     }
 
-    public String getRestrictionName() {
-        return restrictionName;
-    }
-
-    public int getMinAge() {
-        return minAge;
-    }
-
     public void setId(int id) {
         this.id = id;
     }
 
+    public String getRestrictionName() {
+        return restrictionName;
+    }
+
     public void setRestrictionName(String restrictionName) {
         this.restrictionName = restrictionName;
+    }
+
+    public int getMinAge() {
+        return minAge;
     }
 
     public void setMinAge(int minAge) {
