@@ -12,15 +12,15 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import manager.MyEntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
-import repositories.UserRepository;
+//import repositories.UserRepository;
 
 import javax.persistence.EntityManager;
 import java.util.List;
 
 public class Main extends Application {
 
-    @Autowired
-    UserRepository userRepository;
+    //@Autowired
+    //UserRepository userRepository;
 
     public static void main(String[] args) {
         launch(args);

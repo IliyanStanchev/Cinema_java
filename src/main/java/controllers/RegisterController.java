@@ -1,13 +1,20 @@
 package controllers;
 
+import entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.paint.Color;
+import services.UserAuthorizationService;
 import validators.FieldValidator;
 
+import java.awt.*;
+
 public class RegisterController {
+
+    private UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
 
     @FXML
     private TextField usernameField;
@@ -23,6 +30,12 @@ public class RegisterController {
 
     @FXML
     private TextField phoneNumberField;
+
+    @FXML
+    private TextField firstNameField;
+
+    @FXML
+    private TextField lastNameField;
 
     @FXML
     private Label usernameLabel;
@@ -42,14 +55,56 @@ public class RegisterController {
     @FXML
     private Label resultLabel;
 
+    @FXML Label firstNameLabel;
+
+    @FXML Label lastNameLabel;
+
     @FXML
     private void register(ActionEvent event) {
 
+        resultLabel.setText("");
+
+        if(usernameField.getText().isEmpty() || passwordField.getText().isEmpty() || confirmPasswordField.getText().isEmpty()
+            || emailField.getText().isEmpty() || phoneNumberField.getText().isEmpty() || firstNameField.getText().isEmpty()
+            || lastNameField.getText().isEmpty())
+        {
+            resultLabel.setText("Empty fields!");
+            resultLabel.setTextFill(Color.web("red"));
+
+            usernameField.requestFocus();
+
+            return;
+        }
+
+        if(!validateData())
+        {
+            resultLabel.setText("Incorrect fields!");
+            resultLabel.setTextFill(Color.web("red"));
+
+            usernameField.requestFocus();
+
+            return;
+        }
 
         String username = usernameField.getText();
         String password = passwordField.getText();
         String email = emailField.getText();
         String phoneNumber = phoneNumberField.getText();
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
+
+        if(!userAuthorizationService.registerUser(username, password, email, phoneNumber, firstName, lastName))
+        {
+            resultLabel.setText("Something went wrong!");
+            resultLabel.setTextFill(Color.web("red"));
+
+            usernameField.requestFocus();
+
+            return;
+        }
+
+        resultLabel.setText("Successfully created account!");
+        resultLabel.setTextFill(Color.web("green"));
 
     }
 
@@ -91,6 +146,22 @@ public class RegisterController {
 
         if (FieldValidator.validateNumericField(phoneNumberField, phoneNumberLabel))
             phoneNumberLabel.setText("");
+
+    }
+
+    @FXML
+    private void validateFirstName(KeyEvent event){
+
+        if (FieldValidator.validatePersonName(firstNameField, firstNameLabel))
+            firstNameLabel.setText("");
+
+    }
+
+    @FXML
+    private void validateLastName(KeyEvent event){
+
+        if (FieldValidator.validatePersonName(lastNameField, lastNameLabel))
+            lastNameLabel.setText("");
 
     }
 
