@@ -13,4 +13,14 @@ public class UserAuthorizationService {
 
         return userDAO.authenticateUser(username, password);
     }
+
+    public boolean registerUser(String username, String password, String email, String phoneNumber, String firstName, String lastName){
+        User user = userDAO.saveOrUpdate(new User(email, username, password, firstName, lastName, phoneNumber));
+
+        if(user == null)
+            return false;
+
+        return true;
+    }
+
 }

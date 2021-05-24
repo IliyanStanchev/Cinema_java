@@ -11,7 +11,7 @@ public class DataValidator {
 
         if (inputTextField.getText().length() < requiredLength) {
 
-            inputLabel.setText(String.format("Text should be at least %d symbols long", requiredLength));
+            inputLabel.setText(String.format("Text should be at least %d symbols", requiredLength));
             return false;
         }
 
@@ -34,6 +34,17 @@ public class DataValidator {
         if (!inputTextField.getText().matches("^[a-zA-Z0-9_.-]*$")) {
 
             inputLabel.setText("Wrong username format");
+            return false;
+        }
+
+        return true;
+    }
+
+    public static boolean checkPersonNameFormat(TextField inputTextField, Label inputLabel) {
+
+        if (!inputTextField.getText().matches("^[a-zA-Z]*$")) {
+
+            inputLabel.setText("Wrong name format");
             return false;
         }
 
