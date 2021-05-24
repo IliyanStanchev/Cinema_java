@@ -1,9 +1,10 @@
 package entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
-public class Genre {
+public class Genre implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

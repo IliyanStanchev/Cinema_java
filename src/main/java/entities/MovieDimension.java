@@ -1,10 +1,11 @@
 package entities;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name = "movie_dimension")
-public class MovieDimension {
+public class MovieDimension implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

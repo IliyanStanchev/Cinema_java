@@ -1,16 +1,19 @@
-package dao;
+package dao.implementation;
 
+import dao.BaseDAO;
+import dao.IUserDAO;
 import entities.User;
 import manager.MyEntityManager;
 
 import javax.persistence.NoResultException;
 
-public class UserDAO extends BaseDAO<User> {
+public class UserDAO extends BaseDAO<User> implements IUserDAO {
 
-    public UserDAO() {
-        tableName = "User";
+    public UserDAO(){
+        setClass(User.class);
     }
 
+    @Override
     public User authenticateUser(String username, String password) {
 
         User user;

@@ -1,6 +1,6 @@
 package services;
 
-import dao.UserDAO;
+import dao.implementation.UserDAO;
 import entities.User;
 
 
