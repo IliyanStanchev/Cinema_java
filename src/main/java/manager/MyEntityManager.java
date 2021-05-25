@@ -14,7 +14,6 @@ public class MyEntityManager {
     public static void executeInsideTransaction(Consumer<EntityManager> action) {
         EntityTransaction tx = entityManager.getTransaction();
         try {
-            //comment added
             tx.begin();
             action.accept(entityManager);
             tx.commit();
@@ -23,26 +22,6 @@ public class MyEntityManager {
             throw e;
         }
     }
-
-   /* public static Object saveOrUpdate(Object o)
-    {
-        EntityTransaction tx = entityManager.getTransaction();
-        try
-        {
-            tx.begin();
-            if(entityManager.contains(o))
-                entityManager.merge(o);
-
-            entityManager.persist(o);
-            entityManager.flush();
-            tx.commit();
-        } catch (RuntimeException e)
-        {
-            tx.rollback();
-            return null;
-        }
-        return o;
-    }*/
 
     public static EntityManager getEntityManager() {
         return entityManager;

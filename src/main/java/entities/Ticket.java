@@ -2,9 +2,10 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-public class Ticket  implements Serializable {
+public class Ticket implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,10 +16,10 @@ public class Ticket  implements Serializable {
     @ManyToOne
     private User user;
 
-    @ManyToOne
+    @OneToOne
     private Showtime showtime;
 
-    @ManyToOne
+    @OneToOne
     private Seat seat;
 
     public Ticket() {
@@ -29,17 +30,6 @@ public class Ticket  implements Serializable {
         this.user = user;
         this.showtime = showtime;
         this.seat = seat;
-    }
-
-    @Override
-    public String toString() {
-        return "Ticket{" +
-                "id=" + id +
-                ", price=" + price +
-                ", user=" + user +
-                ", showtime=" + showtime +
-                ", seat=" + seat +
-                '}';
     }
 
     public int getId() {
@@ -80,5 +70,18 @@ public class Ticket  implements Serializable {
 
     public void setSeat(Seat seat) {
         this.seat = seat;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Ticket)) return false;
+        Ticket ticket = (Ticket) o;
+        return getId() == ticket.getId() && getPrice() == ticket.getPrice() && Objects.equals(getUser(), ticket.getUser()) && Objects.equals(getShowtime(), ticket.getShowtime()) && Objects.equals(getSeat(), ticket.getSeat());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getPrice(), getUser(), getShowtime(), getSeat());
     }
 }

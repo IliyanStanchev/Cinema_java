@@ -2,9 +2,10 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-public class Seat  implements Serializable {
+public class Seat implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,15 +23,6 @@ public class Seat  implements Serializable {
     public Seat(int seatNumber, Row row) {
         this.seatNumber = seatNumber;
         this.row = row;
-    }
-
-    @Override
-    public String toString() {
-        return "Seat{" +
-                "id=" + id +
-                ", seatNumber=" + seatNumber +
-                ", row=" + row +
-                '}';
     }
 
     public int getId() {
@@ -57,5 +49,16 @@ public class Seat  implements Serializable {
         this.row = row;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Seat)) return false;
+        Seat seat = (Seat) o;
+        return getId() == seat.getId() && getSeatNumber() == seat.getSeatNumber() && Objects.equals(getRow(), seat.getRow());
+    }
 
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getSeatNumber(), getRow());
+    }
 }

@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Movie implements Serializable {
@@ -10,6 +11,7 @@ public class Movie implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    @Column(unique = true)
     private String title;
 
     private String description;
@@ -32,18 +34,6 @@ public class Movie implements Serializable {
         this.genre = genre;
         this.rating = rating;
         this.ageRestriction = ageRestriction;
-    }
-
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", genre=" + genre +
-                ", rating=" + rating +
-                ", ageRestriction=" + ageRestriction +
-                '}';
     }
 
     public int getId() {
@@ -92,5 +82,18 @@ public class Movie implements Serializable {
 
     public void setAgeRestriction(AgeRestriction ageRestriction) {
         this.ageRestriction = ageRestriction;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Movie)) return false;
+        Movie movie = (Movie) o;
+        return getId() == movie.getId() && Objects.equals(getTitle(), movie.getTitle()) && Objects.equals(getDescription(), movie.getDescription()) && Objects.equals(getGenre(), movie.getGenre()) && Objects.equals(getRating(), movie.getRating()) && Objects.equals(getAgeRestriction(), movie.getAgeRestriction());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getTitle(), getDescription(), getGenre(), getRating(), getAgeRestriction());
     }
 }

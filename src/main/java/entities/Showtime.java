@@ -2,9 +2,10 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
-public class Showtime  implements Serializable {
+public class Showtime implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,18 +32,6 @@ public class Showtime  implements Serializable {
         this.endTime = endTime;
         this.movie = movie;
         this.movieDimension = movieDimension;
-    }
-
-    @Override
-    public String toString() {
-        return "Showtime{" +
-                "id=" + id +
-                ", date='" + date + '\'' +
-                ", startTime='" + startTime + '\'' +
-                ", endTime='" + endTime + '\'' +
-                ", movie=" + movie +
-                ", movieDimension=" + movieDimension +
-                '}';
     }
 
     public int getId() {
@@ -91,5 +80,18 @@ public class Showtime  implements Serializable {
 
     public void setMovieDimension(MovieDimension movieDimension) {
         this.movieDimension = movieDimension;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Showtime)) return false;
+        Showtime showtime = (Showtime) o;
+        return getId() == showtime.getId() && Objects.equals(getDate(), showtime.getDate()) && Objects.equals(getStartTime(), showtime.getStartTime()) && Objects.equals(getEndTime(), showtime.getEndTime()) && Objects.equals(getMovie(), showtime.getMovie()) && Objects.equals(getMovieDimension(), showtime.getMovieDimension());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getDate(), getStartTime(), getEndTime(), getMovie(), getMovieDimension());
     }
 }

@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 @Table(name = "age_restriction")
@@ -21,15 +22,6 @@ public class AgeRestriction implements Serializable {
     public AgeRestriction(String restrictionName, int minAge) {
         this.restrictionName = restrictionName;
         this.minAge = minAge;
-    }
-
-    @Override
-    public String toString() {
-        return "AgeRestriction{" +
-                "id=" + id +
-                ", restrictionName='" + restrictionName + '\'' +
-                ", minAge=" + minAge +
-                '}';
     }
 
     public int getId() {
@@ -54,5 +46,18 @@ public class AgeRestriction implements Serializable {
 
     public void setMinAge(int minAge) {
         this.minAge = minAge;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof AgeRestriction)) return false;
+        AgeRestriction that = (AgeRestriction) o;
+        return getId() == that.getId() && getMinAge() == that.getMinAge() && Objects.equals(getRestrictionName(), that.getRestrictionName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getRestrictionName(), getMinAge());
     }
 }

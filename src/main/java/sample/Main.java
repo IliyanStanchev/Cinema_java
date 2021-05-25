@@ -6,13 +6,11 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import manager.MyEntityManager;
+import utils.OpenForm;
 
 import javax.persistence.EntityManager;
 
 public class Main extends Application {
-
-    //@Autowired
-    //UserRepository userRepository;
 
     public static void main(String[] args) {
         launch(args);
@@ -38,7 +36,7 @@ public class Main extends Application {
             return;
         }
 
-        userDAO.deleteById(user.getId());
+        OpenForm.openNewForm("/Login.fxml", "Login page");
 
     }
 }

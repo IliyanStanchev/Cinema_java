@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Genre implements Serializable {
@@ -10,7 +11,7 @@ public class Genre implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name = "genre_name")
+    @Column(name = "genre_name", unique = true)
     private String genreName;
 
     public Genre() {
@@ -18,14 +19,6 @@ public class Genre implements Serializable {
 
     public Genre(String genreName) {
         this.genreName = genreName;
-    }
-
-    @Override
-    public String toString() {
-        return "Genre{" +
-                "id=" + id +
-                ", genreName='" + genreName + '\'' +
-                '}';
     }
 
     public int getId() {
@@ -42,5 +35,18 @@ public class Genre implements Serializable {
 
     public void setGenreName(String genreName) {
         this.genreName = genreName;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Genre)) return false;
+        Genre genre = (Genre) o;
+        return getId() == genre.getId() && Objects.equals(getGenreName(), genre.getGenreName());
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getGenreName());
     }
 }

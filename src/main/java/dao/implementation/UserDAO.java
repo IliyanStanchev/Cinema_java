@@ -9,7 +9,7 @@ import javax.persistence.NoResultException;
 
 public class UserDAO extends BaseDAO<User> implements IUserDAO {
 
-    public UserDAO(){
+    public UserDAO() {
         setClass(User.class);
     }
 

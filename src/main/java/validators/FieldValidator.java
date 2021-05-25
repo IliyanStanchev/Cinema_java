@@ -82,8 +82,8 @@ public class FieldValidator {
         return true;
     }
 
-    public static boolean validatePersonName(TextField field, Label validationLabel){
-        if(DataValidator.isFieldEmpty(field, validationLabel)){
+    public static boolean validatePersonName(TextField field, Label validationLabel) {
+        if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
             if (!DataValidator.checkPersonNameFormat(field, validationLabel))
                 return false;

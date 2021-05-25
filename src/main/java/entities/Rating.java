@@ -2,6 +2,7 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Objects;
 
 @Entity
 public class Rating implements Serializable {
@@ -16,25 +17,15 @@ public class Rating implements Serializable {
     @Column(name = "ratings_sum")
     private int sumOfRatings;
 
-    private int rating;
+    private double rating;
 
     public Rating() {
     }
 
-    public Rating(int numberOfRatings, int sumOfRatings, int rating) {
+    public Rating(int numberOfRatings, int sumOfRatings, double rating) {
         this.numberOfRatings = numberOfRatings;
         this.sumOfRatings = sumOfRatings;
         this.rating = rating;
-    }
-
-    @Override
-    public String toString() {
-        return "Rating{" +
-                "id=" + id +
-                ", numberOfRatings=" + numberOfRatings +
-                ", sumOfRatings=" + sumOfRatings +
-                ", rating=" + rating +
-                '}';
     }
 
     public int getId() {
@@ -61,11 +52,24 @@ public class Rating implements Serializable {
         this.sumOfRatings = sumOfRatings;
     }
 
-    public int getRating() {
+    public double getRating() {
         return rating;
     }
 
-    public void setRating(int rating) {
+    public void setRating(double rating) {
         this.rating = rating;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Rating)) return false;
+        Rating rating1 = (Rating) o;
+        return getId() == rating1.getId() && getNumberOfRatings() == rating1.getNumberOfRatings() && getSumOfRatings() == rating1.getSumOfRatings() && Double.compare(rating1.getRating(), getRating()) == 0;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(getId(), getNumberOfRatings(), getSumOfRatings(), getRating());
     }
 }

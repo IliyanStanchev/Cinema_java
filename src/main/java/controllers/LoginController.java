@@ -7,8 +7,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
@@ -32,13 +30,7 @@ public class LoginController implements Initializable {
     private TextField passwordField;
 
     @FXML
-    private Button btnLogin;
-
-    @FXML
     private Label resultLabel;
-
-    @FXML
-    private Hyperlink hyperSignUp;
 
     @FXML
     private void login(ActionEvent event) throws IOException {
@@ -58,7 +50,6 @@ public class LoginController implements Initializable {
         String username = usernameField.getText();
         String password = passwordField.getText();
 
-
         User user = userAuthorizationService.authorizeUser(username, password);
 
         if (user == null) {
@@ -66,7 +57,6 @@ public class LoginController implements Initializable {
             usernameField.requestFocus();
             return;
         }
-
 
         FXMLLoader loader = OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
         CustomerController next = loader.getController();

@@ -4,34 +4,30 @@ import manager.MyEntityManager;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
-import javax.persistence.Query;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 
 public abstract class BaseDAO<EntityClass extends Serializable> {
 
+    private final EntityManager entityManager = MyEntityManager.getEntityManager();
     //Members
     //------------------------------------
     private Class<EntityClass> entityClass;
 
-    private final EntityManager entityManager = MyEntityManager.getEntityManager();
-
-
     //Methods
     //--------------------------------------------------------------------------------------------
-    public final void setClass(Class <EntityClass> entityClass){
+    public final void setClass(Class<EntityClass> entityClass) {
         this.entityClass = entityClass;
     }
 
     public List<EntityClass> getAll() {
 
-      return entityManager.createQuery("FROM " + entityClass.getName()).getResultList();
+        return entityManager.createQuery("FROM " + entityClass.getName()).getResultList();
     }
 
     public EntityClass findById(int id) {
 
-        return MyEntityManager.getEntityManager().find(entityClass,id);
+        return MyEntityManager.getEntityManager().find(entityClass, id);
     }
 
     public EntityClass saveOrUpdate(EntityClass entityObject) {
@@ -41,11 +37,11 @@ public abstract class BaseDAO<EntityClass extends Serializable> {
 
             tx.begin();
 
-                if (entityManager.contains(entityObject))
-                    entityManager.merge(entityObject);
+            if (entityManager.contains(entityObject))
+                entityManager.merge(entityObject);
 
-                entityManager.persist(entityObject);
-                entityManager.flush();
+            entityManager.persist(entityObject);
+            entityManager.flush();
 
             tx.commit();
 
@@ -63,7 +59,7 @@ public abstract class BaseDAO<EntityClass extends Serializable> {
         entityManager.remove(entityClass);
     }
 
-    public void deleteById(int id){
+    public void deleteById(int id) {
 
         EntityClass entityClass = findById(id);
 
