@@ -51,7 +51,7 @@ public class Main extends Application {
 
         oListMovies = movieDAO.getAll();
 
-        OpenForm.openNewForm("/Login.fxml", "Login page");
+        OpenForm.openNewForm("/Hall.fxml", "Login page");
 
     }
 }
