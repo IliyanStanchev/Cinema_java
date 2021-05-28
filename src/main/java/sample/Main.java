@@ -1,6 +1,8 @@
 package sample;
 
+import dao.implementation.MovieDAO;
 import dao.implementation.UserDAO;
+import entities.Movie;
 import entities.User;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -9,8 +11,13 @@ import manager.MyEntityManager;
 import utils.OpenForm;
 
 import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Main extends Application {
+
+    public static List<Movie> oListMovies;
+    public static String movieID;
 
     public static void main(String[] args) {
         launch(args);
@@ -35,6 +42,16 @@ public class Main extends Application {
             System.out.println("Something went wrong.");
             return;
         }
+
+        MovieDAO movieDAO = new MovieDAO();
+
+        Movie movie = new Movie("Godzilla vs Kong", "Action, 3D, IMAX 3D, 4DX",null, null, null);
+        movieDAO.saveOrUpdate(movie);
+
+        movie = new Movie("Mortal Kombat", "Action, 3D, IMAX 3D, 4DX",null, null, null);
+        movieDAO.saveOrUpdate(movie);
+
+        oListMovies = movieDAO.getAll();
 
         OpenForm.openNewForm("/Login.fxml", "Login page");
 

@@ -58,9 +58,7 @@ public class LoginController implements Initializable {
             return;
         }
 
-        FXMLLoader loader = OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
-        CustomerController next = loader.getController();
-        next.loadData(user);
+        OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
 
         CloseForm.closeForm(event);
     }
