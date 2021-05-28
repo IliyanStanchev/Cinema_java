@@ -2,6 +2,8 @@ package entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.LocalTime;
 import java.util.Objects;
 
 @Entity
@@ -11,27 +13,52 @@ public class Showtime implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String date;
+    private LocalDate date;
 
-    private String startTime;
+    private LocalTime startTime;
 
-    private String endTime;
+    private LocalTime endTime;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private Movie movie;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     private MovieDimension movieDimension;
 
     public Showtime() {
     }
 
-    public Showtime(String date, String startTime, String endTime, Movie movie, MovieDimension movieDimension) {
+    public Showtime(int id, LocalDate date, LocalTime startTime, LocalTime endTime, Movie movie, MovieDimension movieDimension) {
+        this.id = id;
         this.date = date;
         this.startTime = startTime;
         this.endTime = endTime;
         this.movie = movie;
         this.movieDimension = movieDimension;
+    }
+
+    public LocalDate getDate() {
+        return date;
+    }
+
+    public void setDate(LocalDate date) {
+        this.date = date;
+    }
+
+    public LocalTime getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(LocalTime startTime) {
+        this.startTime = startTime;
+    }
+
+    public LocalTime getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(LocalTime endTime) {
+        this.endTime = endTime;
     }
 
     public int getId() {
@@ -40,30 +67,6 @@ public class Showtime implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getDate() {
-        return date;
-    }
-
-    public void setDate(String date) {
-        this.date = date;
-    }
-
-    public String getStartTime() {
-        return startTime;
-    }
-
-    public void setStartTime(String startTime) {
-        this.startTime = startTime;
-    }
-
-    public String getEndTime() {
-        return endTime;
-    }
-
-    public void setEndTime(String endTime) {
-        this.endTime = endTime;
     }
 
     public Movie getMovie() {

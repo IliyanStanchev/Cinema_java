@@ -1,52 +1,45 @@
 package controllers;
 
-import entities.Movie;
-import entities.User;
-
-import javafx.fxml.*;
-import javafx.scene.control.Label;
-
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.net.URL;
-import java.util.*;
-
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.util.ResourceBundle;
-
+import entities.Showtime;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
 import javafx.geometry.VPos;
-import javafx.scene.control.Button;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import services.MovieService;
+import services.ShowtimeService;
 import utils.CloseForm;
 import utils.OpenForm;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
+
 public class CustomerController implements Initializable {
 
-    private List movies;
+    private List showtimes;
 
     private HBox hBox;
 
     @FXML
     private ScrollPane scrollPane;
+
+
     @FXML
     private GridPane grid;
-    @FXML
-    private Button backButton;
+
     @FXML
     private ImageView imageView;
+
     @FXML
     private Image image;
 
@@ -61,13 +54,13 @@ public class CustomerController implements Initializable {
         grid.setHgap(10);
         grid.setVgap(10);
 
-        MovieService movieService = new MovieService();
+        ShowtimeService showtimeService = new ShowtimeService();
 
-        movies = new ArrayList<Movie>();
+        showtimes = new ArrayList<Showtime>();
 
-        movies = movieService.getAll();
+        showtimes = showtimeService.getAll();
 
-        final int rows = (movies.size() / 4) + 1;
+        final int rows = (showtimes.size() / 4) + 1;
         final int columns = 4;
 
         int imageIndex = 0;
@@ -75,7 +68,7 @@ public class CustomerController implements Initializable {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
 
-                if (imageIndex < movies.size()) {
+                if (imageIndex < showtimes.size()) {
                     addImage(imageIndex, j, i);
                     imageIndex++;
                 }
@@ -83,12 +76,12 @@ public class CustomerController implements Initializable {
         }
     }
 
-    private void addImage(int index, int colIndex, int rowIndex)  {
+    private void addImage(int index, int colIndex, int rowIndex) {
 
-        Movie movie = (Movie) movies.get(index);
+        Showtime showtime = (Showtime) showtimes.get(index);
 
         try {
-            image = new Image(new FileInputStream(movie.getImageUrl()));
+            image = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
@@ -105,7 +98,7 @@ public class CustomerController implements Initializable {
 
             FXMLLoader loader = OpenForm.openNewForm("/SelectedMoviePage.fxml", "Booking page");
             SelectedMovieController next = loader.getController();
-            next.setMovie(movie.getId());
+            next.setShowtime(showtime.getId());
 
             CloseForm.closeFormMouseEvent(event);
 

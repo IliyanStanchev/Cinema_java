@@ -1,36 +1,24 @@
 package controllers;
 
-import java.awt.Desktop;
-import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-import java.util.ResourceBundle;
-
-import javax.imageio.ImageIO;
-
-import entities.Movie;
-import javafx.embed.swing.SwingFXUtils;
+import entities.Showtime;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
-import javafx.scene.control.ButtonType;
-import javafx.scene.control.Alert.AlertType;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
-import sample.Main;
-import services.MovieService;
+import services.ShowtimeService;
 import utils.CloseForm;
 import utils.OpenForm;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class SelectedMovieController implements Initializable{
+
+public class SelectedMovieController implements Initializable {
 
     @FXML
     private ImageView selectedFilmPoster;
@@ -48,7 +36,7 @@ public class SelectedMovieController implements Initializable{
     private Text endDate;
 
     @FXML
-    private Text time;
+    private Text date;
 
     @FXML
     private Button backButton, bookButton;
@@ -69,22 +57,26 @@ public class SelectedMovieController implements Initializable{
         CloseForm.closeForm(event);
     }
 
-    public void setMovie(int id) {
+    public void setShowtime(int id) {
 
-        MovieService movieService = new MovieService();
+        ShowtimeService showtimeService = new ShowtimeService();
 
-        Movie movie = movieService.findById(id);
+        Showtime showtime = showtimeService.findById(id);
 
         Image image = null;
         try {
-           image = new Image(new FileInputStream(movie.getImageUrl()));
+            image = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
         selectedFilmPoster.setImage(image);
-        title.setText(movie.getTitle());
-        description.setText(movie.getDescription());
+
+        title.setText(showtime.getMovie().getTitle());
+        description.setText(showtime.getMovie().getDescription());
+        date.setText(showtime.getDate().toString());
+        startDate.setText(showtime.getStartTime().toString());
+        endDate.setText(showtime.getEndTime().toString());
 
     }
 }

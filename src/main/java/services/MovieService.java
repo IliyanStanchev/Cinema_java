@@ -9,7 +9,7 @@ public class MovieService {
 
     MovieDAO movieDAO = new MovieDAO();
 
-    public List<Movie> getAll(){
+    public List<Movie> getAll() {
 
         return movieDAO.getAll();
     }

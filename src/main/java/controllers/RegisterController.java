@@ -64,7 +64,7 @@ public class RegisterController {
 
         resultLabel.setText("");
 
-        if (       usernameField.getText().isEmpty()
+        if (usernameField.getText().isEmpty()
                 || passwordField.getText().isEmpty()
                 || confirmPasswordField.getText().isEmpty()
                 || emailField.getText().isEmpty()
@@ -89,12 +89,12 @@ public class RegisterController {
             return;
         }
 
-        String username     = usernameField.getText();
-        String password     = passwordField.getText();
-        String email        = emailField.getText();
-        String phoneNumber  = phoneNumberField.getText();
-        String firstName    = firstNameField.getText();
-        String lastName     = lastNameField.getText();
+        String username = usernameField.getText();
+        String password = passwordField.getText();
+        String email = emailField.getText();
+        String phoneNumber = phoneNumberField.getText();
+        String firstName = firstNameField.getText();
+        String lastName = lastNameField.getText();
 
         User user = new User(email, username, password, firstName, lastName, phoneNumber);
 
