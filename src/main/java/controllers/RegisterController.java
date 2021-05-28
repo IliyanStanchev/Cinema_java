@@ -13,9 +13,10 @@ import validators.FieldValidator;
 public class RegisterController {
 
     @FXML
-    Label firstNameLabel;
+    private Label firstNameLabel;
     @FXML
-    Label lastNameLabel;
+    private Label lastNameLabel;
+
     private UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
     @FXML
     private TextField usernameField;
@@ -88,7 +89,7 @@ public class RegisterController {
 
         String username     = usernameField.getText();
         String password     = passwordField.getText();
-        String email         = emailField.getText();
+        String email        = emailField.getText();
         String phoneNumber  = phoneNumberField.getText();
         String firstName    = firstNameField.getText();
         String lastName     = lastNameField.getText();

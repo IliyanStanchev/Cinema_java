@@ -18,9 +18,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Login.fxml"));
 
-        EntityManager entityManager = MyEntityManager.getEntityManager();
         User user = new User("ench3r@gmail.com", "sach", "123", "iliyan", "stanchev", "0897875640");
 
         UserDAO userDAO = new UserDAO();

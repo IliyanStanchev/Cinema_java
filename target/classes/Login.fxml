@@ -16,7 +16,7 @@
                 <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="85.0" layoutY="139.0" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/CinemaIcon.png"/>
+                        <Image url="@Images/CinemaIcon.png"/>
                     </image>
                 </ImageView>
                 <Text layoutX="117.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cinema">
@@ -37,13 +37,13 @@
                 <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="71.0" layoutY="203.0" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/UserIcon.png"/>
+                        <Image url="@Images/UserIcon.png"/>
                     </image>
                 </ImageView>
                 <ImageView fitHeight="29.0" fitWidth="25.0" layoutX="71.0" layoutY="248.0" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/PasswordIcon.png"/>
+                        <Image url="@Images/PasswordIcon.png"/>
                     </image>
                 </ImageView>
                 <Button layoutX="115.0" layoutY="325.0" mnemonicParsing="false" onAction="#login" prefHeight="34.0"
@@ -52,7 +52,7 @@
                 <ImageView fitHeight="95.0" fitWidth="106.0" layoutX="143.0" layoutY="47.0" pickOnBounds="true"
                            preserveRatio="true">
                     <image>
-                        <Image url="file:/C:/Users/Asus/IdeaProjects/Cinema_java/src/main/resources/Images/UsersIcon.png"/>
+                        <Image url="@Images/UsersIcon.png"/>
                     </image>
                 </ImageView>
                 <Text fill="#d62bd1" layoutX="140.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0"
