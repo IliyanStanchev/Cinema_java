@@ -12,12 +12,14 @@ import validators.FieldValidator;
 
 public class RegisterController {
 
+    private UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
+
     @FXML
     private Label firstNameLabel;
+
     @FXML
     private Label lastNameLabel;
 
-    private UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
     @FXML
     private TextField usernameField;
 

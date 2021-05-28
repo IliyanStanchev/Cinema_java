@@ -16,9 +16,6 @@ import java.util.List;
 
 public class Main extends Application {
 
-    public static List<Movie> oListMovies;
-    public static String movieID;
-
     public static void main(String[] args) {
         launch(args);
     }
@@ -43,13 +40,11 @@ public class Main extends Application {
 
         MovieDAO movieDAO = new MovieDAO();
 
-        Movie movie = new Movie("Godzilla vs Kong", "Action, 3D, IMAX 3D, 4DX",null, null, null);
+        Movie movie = new Movie(0,"Godzilla vs Kong", "Action, 3D, IMAX 3D, 4DX",null, null, null,"src/main/resources/MovieImages/Godzilla vs Kong.jpg");
         movieDAO.saveOrUpdate(movie);
 
-        movie = new Movie("Mortal Kombat", "Action, 3D, IMAX 3D, 4DX",null, null, null);
+        movie = new Movie(0,"Mortal Kombat", "Action, 3D, IMAX 3D, 4DX",null, null, null,"src/main/resources/MovieImages/Mortal Kombat.jpg");
         movieDAO.saveOrUpdate(movie);
-
-        oListMovies = movieDAO.getAll();
 
         OpenForm.openNewForm("/Login.fxml", "Login page");
 

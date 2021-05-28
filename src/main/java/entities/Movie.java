@@ -25,15 +25,27 @@ public class Movie implements Serializable {
     @ManyToOne
     private AgeRestriction ageRestriction;
 
+    private String imageUrl;
+
     public Movie() {
     }
 
-    public Movie(String title, String description, Genre genre, Rating rating, AgeRestriction ageRestriction) {
+    public Movie(int id, String title, String description, Genre genre, Rating rating, AgeRestriction ageRestriction, String imageUrl) {
+        this.id = id;
         this.title = title;
         this.description = description;
         this.genre = genre;
         this.rating = rating;
         this.ageRestriction = ageRestriction;
+        this.imageUrl = imageUrl;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
     public int getId() {

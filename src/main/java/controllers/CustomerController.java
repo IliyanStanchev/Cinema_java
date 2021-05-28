@@ -6,6 +6,8 @@ import entities.User;
 import javafx.fxml.*;
 import javafx.scene.control.Label;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.*;
 
@@ -27,114 +29,87 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import org.springframework.stereotype.Controller;
-import sample.Main;
+import services.MovieService;
 import utils.CloseForm;
 import utils.OpenForm;
 
 public class CustomerController implements Initializable {
 
-    ArrayList<File> fileList = new ArrayList<File>();
-    HBox hb = new HBox();
+    private List movies;
+
+    private HBox hBox;
 
     @FXML
-    ScrollPane scrollPane;
+    private ScrollPane scrollPane;
     @FXML
-    GridPane grid;
+    private GridPane grid;
     @FXML
-    Button backButton;
+    private Button backButton;
     @FXML
-    ImageView pic;
+    private ImageView imageView;
     @FXML
-    Image image;
-    @FXML
-    String id;
+    private Image image;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        hBox = new HBox();
+
+        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
+
+        grid.setPadding(new Insets(7, 7, 7, 7));
+        grid.setHgap(10);
+        grid.setVgap(10);
+
+        MovieService movieService = new MovieService();
+
+        movies = new ArrayList<Movie>();
+
+        movies = movieService.getAll();
+
+        final int rows = (movies.size() / 4) + 1;
+        final int columns = 4;
+
+        int imageIndex = 0;
+
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+
+                if (imageIndex < movies.size()) {
+                    addImage(imageIndex, j, i);
+                    imageIndex++;
+                }
+            }
+        }
+    }
+
+    private void addImage(int index, int colIndex, int rowIndex)  {
+
+        Movie movie = (Movie) movies.get(index);
+
         try {
-            String path = URLDecoder.decode(/*Main.getPath()*/ "src/main/resources/MovieImages/", "UTF-8");
-
-            File folder = new File(path);
-
-            for (File file : folder.listFiles()) {
-                if (!file.toString().contains("DS_Store")) {
-                    fileList.add(file);
-                }
-            }
-
-            scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
-            // gridpane settings
-            // setting exterior grid padding
-            grid.setPadding(new Insets(7,7,7,7));
-            // setting interior grid padding
-            grid.setHgap(10);
-            grid.setVgap(10);
-
-            int rows = (fileList.size() / 4) + 1;
-            int columns = 4;
-            int imageIndex = 0;
-
-            for (int i = 0 ; i < rows; i++) {
-                for (int j = 0; j < columns; j++) {
-
-                    if(imageIndex < fileList.size()){
-                        addImage(imageIndex, j, i);
-                        imageIndex++;
-                    }
-                }
-            }
-        }
-        catch(Exception e) {
+            image = new Image(new FileInputStream(movie.getImageUrl()));
+        } catch (FileNotFoundException e) {
             e.printStackTrace();
-        }}
-
-    /**
-     * Method that adds ImageView nodes to a GridPane
-     * @param //int index, int colIndex, int rowIndex
-     */
-    private void addImage(int index, int colIndex, int rowIndex) {
-
-        File file = fileList.get(index);
-        String movieName = file.getName().toString();
-        movieName = movieName.substring(0, (movieName.length() - 4));
-
-        String id;
-
-        for(int i=0; i<Main.oListMovies.size();i++)
-        {
-            id = null;
-
-            Movie movie = Main.oListMovies.get(i);
-
-            if(movieName.equals(movie.getTitle()))
-            {
-                id = Integer.toString(movie.getId());
-
-                image = new Image(fileList.get(index).toURI().toString());
-                pic = new ImageView();
-                pic.setFitWidth(160);
-                pic.setFitHeight(220);
-                pic.setImage(image);
-                pic.setId(id);
-                hb.getChildren().add(pic);
-                GridPane.setConstraints(pic, colIndex, rowIndex, 1, 1, HPos.CENTER, VPos.CENTER);
-                grid.getChildren().addAll(pic);
-
-                pic.setOnMouseClicked(event -> {
-                    Main.movieID = pic.getId();
-                    FXMLLoader loader = OpenForm.openNewForm("/SelectedMoviePage.fxml", "Booking page");
-                    //SelectedMovieController controller = loader.getController();
-                    //controller.movieID = pic.getId();
-
-                    CloseForm.closeFormMouseEvent(event);
-                });
-
-                break;
-            }
         }
+        imageView = new ImageView();
+        imageView.setFitWidth(160);
+        imageView.setFitHeight(220);
+        imageView.setImage(image);
+
+        hBox.getChildren().add(imageView);
+        GridPane.setConstraints(imageView, colIndex, rowIndex, 1, 1, HPos.CENTER, VPos.CENTER);
+        grid.getChildren().addAll(imageView);
+
+        imageView.setOnMouseClicked(event -> {
+
+            FXMLLoader loader = OpenForm.openNewForm("/SelectedMoviePage.fxml", "Booking page");
+            SelectedMovieController next = loader.getController();
+            next.setMovie(movie.getId());
+
+            CloseForm.closeFormMouseEvent(event);
+
+        });
     }
 
     @FXML
@@ -142,12 +117,6 @@ public class CustomerController implements Initializable {
 
         OpenForm.openNewForm("/Login.fxml", "Login page");
         CloseForm.closeForm(event);
-    }
-
-    @FXML
-    public String getId () {
-
-        return id;
     }
 
 }

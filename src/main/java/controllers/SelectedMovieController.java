@@ -1,9 +1,7 @@
 package controllers;
 
 import java.awt.Desktop;
-import java.io.File;
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import java.io.*;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -27,71 +25,66 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import sample.Main;
+import services.MovieService;
 import utils.CloseForm;
 import utils.OpenForm;
 
 
 public class SelectedMovieController implements Initializable{
 
-    File imgFile = null;
-    Desktop desktop = Desktop.getDesktop();
-
-    String movieID;
+    @FXML
+    private ImageView selectedFilmPoster;
 
     @FXML
-    ImageView selectedFilmPoster;
+    private Text title;
+
     @FXML
-    Text title;
+    private Text description;
+
     @FXML
-    Text description;
+    private Text startDate;
+
     @FXML
-    Text startDate;
+    private Text endDate;
+
     @FXML
-    Text endDate;
+    private Text time;
+
     @FXML
-    Text time;
-    @FXML
-    Button backButton, bookButton;
+    private Button backButton, bookButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
-        Movie movie = null;
-        for(int i=0;i<Main.oListMovies.size();i++)
-        {
-            movie = Main.oListMovies.get(i);
-            if(movie.getId() == Integer.parseInt(Main.movieID))
-            {
-                break;
-            }
-        }
-
-        String path = null;
-        try {
-            path = URLDecoder.decode("src/main/resources/MovieImages/", "UTF-8");
-            imgFile = new File(path + movie.getTitle() + ".jpg");
-            Image img = SwingFXUtils.toFXImage(ImageIO.read(imgFile), null);
-            selectedFilmPoster.setImage(img);
-        } catch (UnsupportedEncodingException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        title.setText(movie.getTitle());
-        description.setText(movie.getDescription());
 
     }
 
     @FXML
     public void goToBookingScene(ActionEvent event) {
-        //OpenForm.openNewForm("/BookingPage.fxml", "Booking page");
-        //CloseForm.closeForm(event);
+
     }
 
     @FXML
     public void backToPrevScene(ActionEvent event) {
         OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
         CloseForm.closeForm(event);
+    }
+
+    public void setMovie(int id) {
+
+        MovieService movieService = new MovieService();
+
+        Movie movie = movieService.findById(id);
+
+        Image image = null;
+        try {
+           image = new Image(new FileInputStream(movie.getImageUrl()));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        selectedFilmPoster.setImage(image);
+        title.setText(movie.getTitle());
+        description.setText(movie.getDescription());
+
     }
 }
