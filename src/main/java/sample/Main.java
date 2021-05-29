@@ -1,12 +1,20 @@
 package sample;
 
+import dao.implementation.MovieDAO;
+import dao.implementation.UserDAO;
+import entities.Movie;
+import entities.User;
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import manager.MyEntityManager;
 import utils.OpenForm;
 
-public class Main extends Application {
+import javax.persistence.EntityManager;
+import java.util.ArrayList;
+import java.util.List;
 
-    private DatabaseFiller databaseFiller;
+public class Main extends Application {
 
     public static void main(String[] args) {
         launch(args);
@@ -19,8 +27,6 @@ public class Main extends Application {
         databaseFiller.fillDatabase();
 
         OpenForm.openNewForm("/Login.fxml", "Login page");
-
-        //OpenForm.openNewForm("/Hall.fxml", "Login page");
 
     }
 }

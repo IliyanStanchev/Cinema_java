@@ -13,7 +13,6 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -29,19 +28,19 @@ public class HallController implements Initializable {
     private Image seatIcon;
 
     private HBox hBox;
-    // private List<Row> rowsCollection   =  new ArrayList<>();
-    // private List<Seat> seatsCollection  =  new ArrayList<>();
+   // private List<Row> rowsCollection   =  new ArrayList<>();
+   // private List<Seat> seatsCollection  =  new ArrayList<>();
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
-        List<Row> rowsCollection = new ArrayList<>();
-        List<Seat> seatsCollection = new ArrayList<>();
+        List<Row> rowsCollection   =  new ArrayList<>();
+        List<Seat> seatsCollection  =  new ArrayList<>();
 
         hBox = new HBox();
         grid = new GridPane();
-        grid.setPadding(new Insets(7, 7, 7, 7));
+        grid.setPadding(new Insets(7,7,7,7));
         grid.setHgap(10);
         grid.setVgap(10);
 
@@ -58,11 +57,11 @@ public class HallController implements Initializable {
 
         Seat seat;
         int colIndex = 0;
-        for (int i = 0; i < rowsCollection.size(); i++) {
+        for(int i = 0; i < rowsCollection.size(); i++) {
             int rowId = rowsCollection.get(i).getId();
-            for (int j = 0; j < seatsCollection.size(); j++) {
+            for(int j = 0; j < seatsCollection.size(); j++) {
                 seat = seatsCollection.get(j);
-                if (seat.getRow().getId() == rowId) {
+                if(seat.getRow().getId() == rowId) {
                     addSeat(colIndex, i);
                     colIndex++;
                 }
