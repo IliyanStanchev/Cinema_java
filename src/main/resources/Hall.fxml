@@ -1,11 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane prefHeight="601.0" prefWidth="929.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HallController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HallController">
    <children>
-      <ImageView fx:id="imgView" fitHeight="213.0" fitWidth="254.0" layoutX="338.0" layoutY="194.0" pickOnBounds="true" preserveRatio="true" />
+      <AnchorPane prefHeight="37.0" prefWidth="702.0" style="-fx-background-color: white;">
+         <children>
+            <ScrollPane fx:id="scrollPane" layoutX="1.0" layoutY="32.0" prefHeight="368.0" prefWidth="703.0" style="-fx-background-color: white;">
+               <content>
+                  <AnchorPane prefHeight="195.0" prefWidth="700.0" style="-fx-background-color: white;">
+                     <children>
+                        <GridPane fx:id="grid" layoutX="108.0" layoutY="25.0" prefHeight="277.0" prefWidth="472.0" style="-fx-background-color: white;">
+                           <columnConstraints>
+                              <ColumnConstraints />
+                           </columnConstraints>
+                           <rowConstraints>
+                              <RowConstraints />
+                              <RowConstraints />
+                           </rowConstraints></GridPane>
+                        <Label fx:id="count" layoutX="623.0" layoutY="16.0" text="Label" />
+                        <Label fx:id="seat" layoutX="29.0" layoutY="16.0" text="Label" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </ScrollPane>
+            <MenuBar layoutX="1.0" prefHeight="35.0" prefWidth="702.0" style="-fx-min-width: 100%; -fx-background-color: #d62bd1;" />
+         </children>
+      </AnchorPane>
+      <Text layoutX="15.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 15;" text="Choose seat" wrappingWidth="256.8037519454956" />
+      <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="651.0" layoutY="-1.0" minHeight="21.0" mnemonicParsing="false" onAction="#logout" prefHeight="34.0" prefWidth="48.0" style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Logout" textAlignment="CENTER">
+         <font>
+            <Font size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>

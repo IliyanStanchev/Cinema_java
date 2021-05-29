@@ -3,6 +3,7 @@ package controllers;
 import entities.Showtime;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
@@ -19,6 +20,10 @@ import java.util.ResourceBundle;
 
 
 public class SelectedMovieController implements Initializable {
+
+    private int showtimeId;
+
+    private int userId;
 
     @FXML
     private ImageView selectedFilmPoster;
@@ -48,7 +53,11 @@ public class SelectedMovieController implements Initializable {
 
     @FXML
     public void goToBookingScene(ActionEvent event) {
+        FXMLLoader loader = OpenForm.openNewForm("/Hall.fxml", "Choose seat");
+        HallController next = loader.getController();
 
+        next.setInfo(userId,showtimeId);
+        CloseForm.closeForm(event);
     }
 
     @FXML
@@ -57,11 +66,14 @@ public class SelectedMovieController implements Initializable {
         CloseForm.closeForm(event);
     }
 
-    public void setShowtime(int id) {
+    public void setInfo(int userId,int showtimeId) {
+
+        this.showtimeId = showtimeId;
+        this.userId     = userId;
 
         ShowtimeService showtimeService = new ShowtimeService();
 
-        Showtime showtime = showtimeService.findById(id);
+        Showtime showtime = showtimeService.findById(showtimeId);
 
         Image image = null;
         try {

@@ -2,9 +2,11 @@ package sample;
 
 import dao.implementation.*;
 import entities.*;
+import enums.SeatState;
 
 import java.time.LocalDate;
 import java.time.LocalTime;
+import java.util.ArrayList;
 
 
 public class DatabaseFiller {
@@ -112,5 +114,17 @@ public class DatabaseFiller {
         seatDAO.saveOrUpdate(new Seat(6, row3));
         seatDAO.saveOrUpdate(new Seat(7, row3));
         seatDAO.saveOrUpdate(new Seat(8, row3));
+
+        ArrayList<Seat> seats = (ArrayList<Seat>) seatDAO.getAll();
+
+        ShowtimeSeatDAO showtimeSeatDAO = new ShowtimeSeatDAO();
+
+        for(Seat seat : seats){
+
+            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0,    showtimeGodzillaVsKong2,    seat, SeatState.seatStateEmpty));
+            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0,    showtimeGodzillaVsKong,     seat, SeatState.seatStateEmpty));
+            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0,    showtimeMortalKombat,       seat, SeatState.seatStateEmpty));
+        }
+
     }
 }

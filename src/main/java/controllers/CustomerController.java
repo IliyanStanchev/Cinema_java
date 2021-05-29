@@ -26,6 +26,8 @@ import java.util.ResourceBundle;
 
 public class CustomerController implements Initializable {
 
+    private int userId;
+
     private List showtimes;
 
     private HBox hBox;
@@ -98,7 +100,7 @@ public class CustomerController implements Initializable {
 
             FXMLLoader loader = OpenForm.openNewForm("/SelectedMoviePage.fxml", "Booking page");
             SelectedMovieController next = loader.getController();
-            next.setShowtime(showtime.getId());
+            next.setInfo(userId,showtime.getId());
 
             CloseForm.closeFormMouseEvent(event);
 
@@ -112,4 +114,8 @@ public class CustomerController implements Initializable {
         CloseForm.closeForm(event);
     }
 
+    public void setInfo(int id) {
+
+        this.userId = id;
+    }
 }

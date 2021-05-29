@@ -1,5 +1,6 @@
 package controllers;
 
+import com.mysql.cj.x.protobuf.MysqlxCursor;
 import entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -58,7 +59,9 @@ public class LoginController implements Initializable {
             return;
         }
 
-        OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
+        FXMLLoader loader = OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
+        CustomerController next = loader.getController();
+        next.setInfo(user.getId());
 
         CloseForm.closeForm(event);
     }
