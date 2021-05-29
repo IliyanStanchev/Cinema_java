@@ -64,6 +64,7 @@ public class DatabaseFiller {
                 LocalDate.now(),
                 LocalTime.of(12, 00, 00),
                 LocalTime.of(14, 00, 00),
+                12.50,
                 godzillaVsKong,
                 movieDimension3D));
 
@@ -71,6 +72,7 @@ public class DatabaseFiller {
                 LocalDate.now(),
                 LocalTime.of(14, 00, 00),
                 LocalTime.of(16, 00, 00),
+                10.50,
                 mortalKombat,
                 movieDimension4D));
 
@@ -78,6 +80,7 @@ public class DatabaseFiller {
                 LocalDate.now(),
                 LocalTime.of(16, 00, 00),
                 LocalTime.of(18, 00, 00),
+                7.50,
                 godzillaVsKong,
                 movieDimension2D));
 

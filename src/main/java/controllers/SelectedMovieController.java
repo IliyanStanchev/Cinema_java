@@ -43,8 +43,6 @@ public class SelectedMovieController implements Initializable {
     @FXML
     private Text date;
 
-    @FXML
-    private Button backButton, bookButton;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {

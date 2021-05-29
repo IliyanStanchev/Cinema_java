@@ -60,6 +60,6 @@
                 <Font size="18.0" />
             </font>
         </Text>
-        <Button fx:id="bookButton" layoutX="666.0" layoutY="405.0" mnemonicParsing="false" onAction="#goToBookingScene" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: #d62bd1;" text="Book Now" />
+        <Button fx:id="bookButton" layoutX="666.0" layoutY="400.0" mnemonicParsing="false" onAction="#goToBookingScene" prefHeight="40.0" prefWidth="126.0" style="-fx-background-color: #d62bd1;" text="Book Now" />
     </children>
 </AnchorPane>

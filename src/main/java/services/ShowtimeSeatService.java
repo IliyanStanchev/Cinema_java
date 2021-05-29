@@ -14,4 +14,9 @@ public class ShowtimeSeatService {
 
         return showtimeSeatDAO.getByShowtime(showtimeId);
     }
+
+    public void update(ShowtimeSeat seat) {
+
+        showtimeSeatDAO.saveOrUpdate(seat);
+    }
 }
