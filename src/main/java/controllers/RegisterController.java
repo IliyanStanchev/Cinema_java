@@ -12,7 +12,7 @@ import validators.FieldValidator;
 
 public class RegisterController {
 
-    private UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
+    private final UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
 
     @FXML
     private Label firstNameLabel;
@@ -183,9 +183,6 @@ public class RegisterController {
         if (!FieldValidator.validateEmail(emailField, emailLabel))
             return false;
 
-        if (!FieldValidator.validateNumericField(phoneNumberField, phoneNumberLabel))
-            return false;
-
-        return true;
+        return FieldValidator.validateNumericField(phoneNumberField, phoneNumberLabel);
     }
 }

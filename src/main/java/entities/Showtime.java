@@ -19,7 +19,7 @@ public class Showtime implements Serializable {
 
     private LocalTime endTime;
 
-    private double    price;
+    private double price;
 
     @ManyToOne(fetch = FetchType.EAGER)
     private Movie movie;
@@ -40,7 +40,6 @@ public class Showtime implements Serializable {
         this.movie = movie;
         this.movieDimension = movieDimension;
     }
-
 
 
     public double getPrice() {

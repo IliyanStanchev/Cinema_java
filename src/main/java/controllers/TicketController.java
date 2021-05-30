@@ -1,33 +1,21 @@
 package controllers;
 
-import com.mysql.cj.x.protobuf.MysqlxCursor;
 import entities.*;
 import enums.SeatState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.control.Toggle;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
-import javafx.stage.Stage;
 import services.ShowtimeSeatService;
 import services.TicketService;
-import services.UserAuthorizationService;
 import services.UserService;
-import utils.CloseForm;
 import utils.OpenForm;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.net.URL;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -70,18 +58,18 @@ public class TicketController implements Initializable {
 
     }
 
-    public void logout(ActionEvent event){
-        OpenForm.openNewForm("/Login.fxml","Login");
+    public void logout(ActionEvent event) {
+        OpenForm.openNewForm("/Login.fxml", "Login");
 
     }
 
-    public void purchase(ActionEvent event){
+    public void purchase(ActionEvent event) {
 
         TicketService ticketService = new TicketService();
         ShowtimeSeatService showtimeSeatService = new ShowtimeSeatService();
 
-        for(Object o : seats){
-            ShowtimeSeat seat = (ShowtimeSeat)o;
+        for (Object o : seats) {
+            ShowtimeSeat seat = (ShowtimeSeat) o;
 
             ticketService.save(new Ticket(user, seat.getShowtime(), seat.getSeat()));
 
@@ -122,9 +110,9 @@ public class TicketController implements Initializable {
         String reservedSeats = "";
         double totalPrice = 0;
 
-        for(Object o : seats){
+        for (Object o : seats) {
 
-            ShowtimeSeat seat = (ShowtimeSeat)o;
+            ShowtimeSeat seat = (ShowtimeSeat) o;
 
             reservedSeats += "Seat: " + seat.getSeat().getSeatNumber() + "Row: " + seat.getSeat().getRow().getRowNumber() + ", ";
             totalPrice += seat.getShowtime().getPrice();

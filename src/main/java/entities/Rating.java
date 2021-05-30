@@ -28,6 +28,13 @@ public class Rating implements Serializable {
         this.rating = rating;
     }
 
+    public void addRating(int ratingAdded) {
+
+        sumOfRatings += ratingAdded;
+        numberOfRatings++;
+        rating = (double) sumOfRatings / numberOfRatings;
+    }
+
     public int getId() {
         return id;
     }

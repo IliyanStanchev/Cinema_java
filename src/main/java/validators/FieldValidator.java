@@ -9,8 +9,7 @@ public class FieldValidator {
 
         if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
-            if (!DataValidator.isTextAlphabetical(field, validationLabel))
-                return false;
+            return DataValidator.isTextAlphabetical(field, validationLabel);
         }
 
         return true;
@@ -20,8 +19,7 @@ public class FieldValidator {
 
         if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
-            if (!DataValidator.checkEmailFormat(field, validationLabel))
-                return false;
+            return DataValidator.checkEmailFormat(field, validationLabel);
         }
         return true;
 
@@ -44,8 +42,7 @@ public class FieldValidator {
     public static boolean validateNumericField(TextField field, Label validationLabel) {
         if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
-            if (!DataValidator.isTextNumeric(field, validationLabel))
-                return false;
+            return DataValidator.isTextNumeric(field, validationLabel);
         }
         return true;
     }
@@ -53,8 +50,7 @@ public class FieldValidator {
     public static boolean validateFieldLength(TextField field, Label validationLabel, int lenght) {
         if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
-            if (!DataValidator.checkDataLength(field, validationLabel, lenght))
-                return false;
+            return DataValidator.checkDataLength(field, validationLabel, lenght);
         }
 
         return true;
@@ -64,8 +60,7 @@ public class FieldValidator {
 
         if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
-            if (!DataValidator.checkPriceFormat(field, validationLabel))
-                return false;
+            return DataValidator.checkPriceFormat(field, validationLabel);
         }
 
         return true;
@@ -75,8 +70,7 @@ public class FieldValidator {
     public static boolean validateUsername(TextField field, Label validationLabel) {
         if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
-            if (!DataValidator.checkUsernameFormat(field, validationLabel))
-                return false;
+            return DataValidator.checkUsernameFormat(field, validationLabel);
         }
 
         return true;
@@ -85,8 +79,7 @@ public class FieldValidator {
     public static boolean validatePersonName(TextField field, Label validationLabel) {
         if (DataValidator.isFieldEmpty(field, validationLabel)) {
 
-            if (!DataValidator.checkPersonNameFormat(field, validationLabel))
-                return false;
+            return DataValidator.checkPersonNameFormat(field, validationLabel);
         }
 
         return true;

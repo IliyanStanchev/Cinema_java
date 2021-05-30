@@ -5,7 +5,7 @@ import entities.User;
 
 public class UserService {
 
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
 
     public User findById(int userId) {
 

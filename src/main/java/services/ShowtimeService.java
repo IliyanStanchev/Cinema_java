@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ShowtimeService {
 
-    private ShowtimeDAO showtimeDAO = new ShowtimeDAO();
+    private final ShowtimeDAO showtimeDAO = new ShowtimeDAO();
 
     public List getAll() {
 

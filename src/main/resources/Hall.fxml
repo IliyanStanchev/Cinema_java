@@ -1,50 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HallController">
-   <children>
-      <AnchorPane prefHeight="37.0" prefWidth="702.0" style="-fx-background-color: white;">
-         <children>
-            <ScrollPane fx:id="scrollPane" layoutX="1.0" layoutY="32.0" prefHeight="368.0" prefWidth="703.0" style="-fx-background-color: white;">
-               <content>
-                  <AnchorPane prefHeight="365.0" prefWidth="700.0" style="-fx-background-color: white;">
-                     <children>
-                        <Label layoutX="14.0" layoutY="16.0" text="Number of seats:" />
-                        <GridPane fx:id="grid" layoutX="41.0" layoutY="75.0" prefHeight="216.0" prefWidth="622.0" style="-fx-background-color: white;">
-                           <columnConstraints>
-                              <ColumnConstraints />
-                              <ColumnConstraints />
-                           </columnConstraints>
-                           <rowConstraints>
-                              <RowConstraints />
-                              <RowConstraints />
-                              <RowConstraints />
-                           </rowConstraints></GridPane>
-                        <Label fx:id="totalPrice" layoutX="658.0" layoutY="16.0" text="Label" />
-                        <Label fx:id="seatCount" layoutX="141.0" layoutY="16.0" text="Label" />
-                        <Label layoutX="560.0" layoutY="16.0" text="Total price:" />
-                        <Label layoutX="267.0" layoutY="16.0" text="Price per ticket:" />
-                        <Label fx:id="pricePerTicket" layoutX="382.0" layoutY="16.0" text="Label" />
-                        <Button layoutX="323.0" layoutY="312.0" mnemonicParsing="false" onAction="#bookSeats" text="Button" />
-                     </children>
-                  </AnchorPane>
-               </content>
-            </ScrollPane>
-            <MenuBar layoutX="1.0" prefHeight="35.0" prefWidth="702.0" style="-fx-min-width: 100%; -fx-background-color: #d62bd1;" />
-         </children>
-      </AnchorPane>
-      <Text layoutX="15.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-font-weight: bold; -fx-font-size: 15;" text="Choose seat" wrappingWidth="256.8037519454956" />
-      <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="651.0" layoutY="-1.0" minHeight="21.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="48.0" style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Back" textAlignment="CENTER">
-         <font>
-            <Font size="18.0" />
-         </font>
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Button>
-   </children>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
+            minWidth="-Infinity"
+            prefHeight="400.0" prefWidth="700.0" style="-fx-background-color: white;"
+            xmlns="http://javafx.com/javafx/11.0.1" fx:controller="controllers.HallController">
+    <children>
+        <AnchorPane prefHeight="37.0" prefWidth="702.0" style="-fx-background-color: white;">
+            <children>
+                <ScrollPane fx:id="scrollPane" layoutX="1.0" layoutY="32.0" prefHeight="368.0" prefWidth="703.0"
+                            style="-fx-background-color: white;">
+                    <content>
+                        <AnchorPane prefHeight="365.0" prefWidth="700.0" style="-fx-background-color: white;">
+                            <children>
+                                <Label layoutX="14.0" layoutY="16.0" text="Number of seats:"/>
+                                <GridPane fx:id="grid" layoutX="41.0" layoutY="75.0" prefHeight="216.0"
+                                          prefWidth="622.0" style="-fx-background-color: white;">
+                                    <columnConstraints>
+                                        <ColumnConstraints/>
+                                        <ColumnConstraints/>
+                                    </columnConstraints>
+                                    <rowConstraints>
+                                        <RowConstraints/>
+                                        <RowConstraints/>
+                                        <RowConstraints/>
+                                    </rowConstraints>
+                                </GridPane>
+                                <Label fx:id="totalPrice" layoutX="658.0" layoutY="16.0" text="Label"/>
+                                <Label fx:id="seatCount" layoutX="141.0" layoutY="16.0" text="Label"/>
+                                <Label layoutX="560.0" layoutY="16.0" text="Total price:"/>
+                                <Label layoutX="267.0" layoutY="16.0" text="Price per ticket:"/>
+                                <Label fx:id="pricePerTicket" layoutX="382.0" layoutY="16.0" text="Label"/>
+                                <Button layoutX="323.0" layoutY="312.0" mnemonicParsing="false" onAction="#bookSeats"
+                                        text="Button"/>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+                <MenuBar layoutX="1.0" prefHeight="35.0" prefWidth="702.0"
+                         style="-fx-min-width: 100%; -fx-background-color: #d62bd1;"/>
+            </children>
+        </AnchorPane>
+        <Text layoutX="15.0" layoutY="23.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              style="-fx-font-weight: bold; -fx-font-size: 15;" text="Choose seat" wrappingWidth="256.8037519454956"/>
+        <Button fx:id="backButton" contentDisplay="TOP" graphicTextGap="0.0" layoutX="651.0" layoutY="-1.0"
+                minHeight="21.0" mnemonicParsing="false" onAction="#back" prefHeight="34.0" prefWidth="48.0"
+                style="-fx-background-color: none; -fx-label-padding: -10; -fx-font-size: 12;" text="Back"
+                textAlignment="CENTER">
+            <font>
+                <Font size="18.0"/>
+            </font>
+            <cursor>
+                <Cursor fx:constant="HAND"/>
+            </cursor>
+        </Button>
+    </children>
 </AnchorPane>
