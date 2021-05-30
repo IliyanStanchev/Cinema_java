@@ -7,7 +7,7 @@ import java.util.List;
 
 public class ShowtimeSeatService {
 
-    private ShowtimeSeatDAO showtimeSeatDAO = new ShowtimeSeatDAO();
+    private final ShowtimeSeatDAO showtimeSeatDAO = new ShowtimeSeatDAO();
 
 
     public List<ShowtimeSeat> getAll(int showtimeId) {

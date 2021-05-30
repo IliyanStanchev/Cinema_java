@@ -9,17 +9,14 @@ import java.util.Objects;
 @Entity
 public class ShowtimeSeat implements Serializable {
 
+    SeatState seatState;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-
     @OneToOne
     private Showtime showtime;
-
     @OneToOne
     private Seat seat;
-
-    SeatState seatState;
 
     public ShowtimeSeat(int id, Showtime showtime, Seat seat, SeatState seatState) {
         this.id = id;
