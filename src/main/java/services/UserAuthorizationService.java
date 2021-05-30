@@ -7,7 +7,7 @@ import entities.User;
 public class UserAuthorizationService {
 
 
-    private UserDAO userDAO = new UserDAO();
+    private final UserDAO userDAO = new UserDAO();
 
     public User authorizeUser(String username, String password) {
 
@@ -18,10 +18,7 @@ public class UserAuthorizationService {
 
         User registeredUser = userDAO.saveOrUpdate(user);
 
-        if (registeredUser == null)
-            return false;
-
-        return true;
+        return registeredUser != null;
     }
 
 }

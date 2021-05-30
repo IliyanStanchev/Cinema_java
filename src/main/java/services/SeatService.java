@@ -6,7 +6,7 @@ import java.util.List;
 
 public class SeatService {
 
-    private SeatDAO seatDAO = new SeatDAO();
+    private final SeatDAO seatDAO = new SeatDAO();
 
     public List getAll() {
 

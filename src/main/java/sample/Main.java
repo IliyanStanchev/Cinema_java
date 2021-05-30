@@ -1,18 +1,8 @@
 package sample;
 
-import dao.implementation.MovieDAO;
-import dao.implementation.UserDAO;
-import entities.Movie;
-import entities.User;
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
-import manager.MyEntityManager;
 import utils.OpenForm;
-
-import javax.persistence.EntityManager;
-import java.util.ArrayList;
-import java.util.List;
 
 public class Main extends Application {
 

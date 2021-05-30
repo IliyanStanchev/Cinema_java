@@ -12,16 +12,27 @@ public class AgeRestriction implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private String restrictionName;
+    private String restrictionText;
+
+    private String restrictionImageUrl;
 
     private int minAge;
 
     public AgeRestriction() {
     }
 
-    public AgeRestriction(String restrictionName, int minAge) {
-        this.restrictionName = restrictionName;
+    public AgeRestriction(String restrictionText, String restrictionImageUrl, int minAge) {
+        this.restrictionText = restrictionText;
+        this.restrictionImageUrl = restrictionImageUrl;
         this.minAge = minAge;
+    }
+
+    public String getRestrictionText() {
+        return restrictionText;
+    }
+
+    public void setRestrictionText(String restrictionText) {
+        this.restrictionText = restrictionText;
     }
 
     public int getId() {
@@ -32,12 +43,12 @@ public class AgeRestriction implements Serializable {
         this.id = id;
     }
 
-    public String getRestrictionName() {
-        return restrictionName;
+    public String getRestrictionImageUrl() {
+        return restrictionImageUrl;
     }
 
-    public void setRestrictionName(String restrictionName) {
-        this.restrictionName = restrictionName;
+    public void setRestrictionImageUrl(String restrictionImageUrl) {
+        this.restrictionImageUrl = restrictionImageUrl;
     }
 
     public int getMinAge() {
@@ -53,11 +64,11 @@ public class AgeRestriction implements Serializable {
         if (this == o) return true;
         if (!(o instanceof AgeRestriction)) return false;
         AgeRestriction that = (AgeRestriction) o;
-        return getId() == that.getId() && getMinAge() == that.getMinAge() && Objects.equals(getRestrictionName(), that.getRestrictionName());
+        return getId() == that.getId() && getMinAge() == that.getMinAge() && Objects.equals(getRestrictionImageUrl(), that.getRestrictionImageUrl());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getRestrictionName(), getMinAge());
+        return Objects.hash(getId(), getRestrictionImageUrl(), getMinAge());
     }
 }

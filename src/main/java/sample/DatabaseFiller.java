@@ -13,7 +13,7 @@ public class DatabaseFiller {
 
     public void fillDatabase() {
 
-        User user = new User("ench3r@gmail.com", "sach", "123", "iliyan", "stanchev", "0897875640");
+        User user = new User("ench3r@gmail.com", "sach", "123", "Iliyan", "Stanchev", "0897875640");
 
         UserDAO userDAO = new UserDAO();
 
@@ -28,10 +28,21 @@ public class DatabaseFiller {
 
         AgeRestrictionDAO ageRestrictionDAO = new AgeRestrictionDAO();
 
-        AgeRestriction ageRestrictionG = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("G", 0));
-        AgeRestriction ageRestrictionPG = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("PG", 12));
-        AgeRestriction ageRestrictionR = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("R 15+", 15));
-        AgeRestriction ageRestrictionRPlus = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("R 18+", 18));
+        AgeRestriction ageRestrictionU = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("No age restriction.",
+                "src/main/resources/RestrictionImages/RestrictionU.png",
+                0));
+        AgeRestriction ageRestrictionPG = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("Parental guidance only.",
+                "src/main/resources/RestrictionImages/RestrictionPG.png",
+                6));
+        AgeRestriction ageRestrictionA = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("Forbidden for teens under 12 years.",
+                "src/main/resources/RestrictionImages/RestrictionA.png",
+                12));
+        AgeRestriction ageRestrictionR = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("Forbidden for teens under 15 years.",
+                "src/main/resources/RestrictionImages/RestrictionR.png",
+                15));
+        AgeRestriction ageRestrictionRPlus = ageRestrictionDAO.saveOrUpdate(new AgeRestriction("Forbidden for teens under 18 years.",
+                "src/main/resources/RestrictionImages/RestrictionRPlus.png",
+                18));
 
         MovieDimensionDAO movieDimensionDAO = new MovieDimensionDAO();
 
@@ -41,21 +52,27 @@ public class DatabaseFiller {
 
         MovieDAO movieDAO = new MovieDAO();
 
+        RatingDAO ratingDAO = new RatingDAO();
+
+        Rating ratingGodzilla = ratingDAO.saveOrUpdate(new Rating(0, 0, 0));
+        Rating ratingMortalKombat = ratingDAO.saveOrUpdate(new Rating(0, 0, 0));
+
+
         Movie godzillaVsKong = movieDAO.saveOrUpdate(new Movie(0,
                 "Godzilla vs Kong",
                 "'Godzilla vs. Kong' has gorgeous visuals, hard-hitting fights, and just enough plot to not overcomplicate the fun. [R]idiculously entertaining and endlessly rewatchable, at once funny and joyful yet also grounded and soulful.",
-                null,
-                null,
-                null,
+                action,
+                ratingGodzilla,
+                ageRestrictionU,
                 "src/main/resources/MovieImages/Godzilla vs Kong.jpg"));
 
 
         Movie mortalKombat = movieDAO.saveOrUpdate(new Movie(0,
                 "Mortal Kombat",
                 "Cole trains with experienced warriors Liu Kang",
-                null,
-                null,
-                null,
+                action,
+                ratingMortalKombat,
+                ageRestrictionRPlus,
                 "src/main/resources/MovieImages/Mortal Kombat.jpg"));
 
         ShowtimeDAO showtimeDAO = new ShowtimeDAO();
@@ -64,6 +81,7 @@ public class DatabaseFiller {
                 LocalDate.now(),
                 LocalTime.of(12, 00, 00),
                 LocalTime.of(14, 00, 00),
+                12.50,
                 godzillaVsKong,
                 movieDimension3D));
 
@@ -71,6 +89,7 @@ public class DatabaseFiller {
                 LocalDate.now(),
                 LocalTime.of(14, 00, 00),
                 LocalTime.of(16, 00, 00),
+                10.50,
                 mortalKombat,
                 movieDimension4D));
 
@@ -78,6 +97,7 @@ public class DatabaseFiller {
                 LocalDate.now(),
                 LocalTime.of(16, 00, 00),
                 LocalTime.of(18, 00, 00),
+                7.50,
                 godzillaVsKong,
                 movieDimension2D));
 
@@ -119,11 +139,11 @@ public class DatabaseFiller {
 
         ShowtimeSeatDAO showtimeSeatDAO = new ShowtimeSeatDAO();
 
-        for(Seat seat : seats){
+        for (Seat seat : seats) {
 
-            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0,    showtimeGodzillaVsKong2,    seat, SeatState.seatStateEmpty));
-            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0,    showtimeGodzillaVsKong,     seat, SeatState.seatStateEmpty));
-            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0,    showtimeMortalKombat,       seat, SeatState.seatStateEmpty));
+            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0, showtimeGodzillaVsKong2, seat, SeatState.seatStateEmpty));
+            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0, showtimeGodzillaVsKong, seat, SeatState.seatStateEmpty));
+            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0, showtimeMortalKombat, seat, SeatState.seatStateEmpty));
         }
 
     }

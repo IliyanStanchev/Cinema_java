@@ -14,7 +14,7 @@ public class OpenForm {
             fxmlLoad = new FXMLLoader(
                     new OpenForm().getClass().getResource(fxmlFileName));
 
-            Parent root = (Parent) fxmlLoad.load();
+            Parent root = fxmlLoad.load();
             Stage stage = new Stage();
             stage.setTitle(formTitle);
             stage.setScene(new Scene(root));

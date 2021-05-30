@@ -5,7 +5,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
@@ -25,8 +25,19 @@ public class SelectedMovieController implements Initializable {
 
     private int userId;
 
+    private Showtime showtime;
+
     @FXML
     private ImageView selectedFilmPoster;
+
+    @FXML
+    private ImageView restrictionImage;
+
+    @FXML
+    private Label restrictionText;
+
+    @FXML
+    private Label genre;
 
     @FXML
     private Text title;
@@ -44,7 +55,8 @@ public class SelectedMovieController implements Initializable {
     private Text date;
 
     @FXML
-    private Button backButton, bookButton;
+    private Label rating;
+
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -56,7 +68,7 @@ public class SelectedMovieController implements Initializable {
         FXMLLoader loader = OpenForm.openNewForm("/Hall.fxml", "Choose seat");
         HallController next = loader.getController();
 
-        next.setInfo(userId,showtimeId);
+        next.setInfo(userId, showtimeId);
         CloseForm.closeForm(event);
     }
 
@@ -66,29 +78,48 @@ public class SelectedMovieController implements Initializable {
         CloseForm.closeForm(event);
     }
 
-    public void setInfo(int userId,int showtimeId) {
+    @FXML
+    public void rate(ActionEvent event) {
+
+        FXMLLoader loader = OpenForm.openNewForm("/SetRating.fxml", "Rate this movie");
+        RatingController next = loader.getController();
+        next.setInfo(userId, showtimeId, showtime.getMovie().getId());
+
+        CloseForm.closeForm(event);
+    }
+
+    public void setInfo(int userId, int showtimeId) {
 
         this.showtimeId = showtimeId;
-        this.userId     = userId;
+        this.userId = userId;
 
         ShowtimeService showtimeService = new ShowtimeService();
 
-        Showtime showtime = showtimeService.findById(showtimeId);
+        showtime = new Showtime();
 
-        Image image = null;
+        showtime = showtimeService.findById(showtimeId);
+
+        Image imagePoster = null;
+        Image imageRestriction = null;
         try {
-            image = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
+            imageRestriction = new Image(new FileInputStream(showtime.getMovie().getAgeRestriction().getRestrictionImageUrl()));
+            imagePoster = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        selectedFilmPoster.setImage(image);
+        selectedFilmPoster.setImage(imagePoster);
 
+        restrictionImage.setImage(imageRestriction);
+        restrictionText.setText(showtime.getMovie().getAgeRestriction().getRestrictionText());
+
+        genre.setText(showtime.getMovie().getGenre().getGenreName());
         title.setText(showtime.getMovie().getTitle());
         description.setText(showtime.getMovie().getDescription());
         date.setText(showtime.getDate().toString());
         startDate.setText(showtime.getStartTime().toString());
         endDate.setText(showtime.getEndTime().toString());
+        rating.setText("" + String.valueOf(showtime.getMovie().getRating().getRating()).substring(0, 3) + "/5");
 
     }
 }

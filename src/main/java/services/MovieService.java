@@ -18,4 +18,9 @@ public class MovieService {
 
         return movieDAO.findById(id);
     }
+
+    public Movie saveOrUpdate(Movie movie) {
+
+        return movieDAO.saveOrUpdate(movie);
+    }
 }

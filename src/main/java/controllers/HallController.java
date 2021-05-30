@@ -1,10 +1,10 @@
 package controllers;
 
-import entities.Seat;
 import entities.ShowtimeSeat;
 import enums.SeatState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.HPos;
 import javafx.geometry.Insets;
@@ -18,8 +18,6 @@ import services.ShowtimeSeatService;
 import utils.CloseForm;
 import utils.OpenForm;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,9 +25,9 @@ import java.util.ResourceBundle;
 
 public class HallController implements Initializable {
 
-    private final String bookedSeatIcon     = "src/main/resources/Images/BookedSeatIcon.png";
-    private final String reservedSeatIcon   = "src/main/resources/Images/ReservedSeatIcon.png";
-    private final String emptySeatIcon      = "src/main/resources/Images/EmptySeatIcon.png";
+    private final String bookedSeatIcon = "src/main/resources/Images/BookedSeatIcon.png";
+    private final String reservedSeatIcon = "src/main/resources/Images/ReservedSeatIcon.png";
+    private final String emptySeatIcon = "src/main/resources/Images/EmptySeatIcon.png";
 
     private int userId;
 
@@ -40,10 +38,13 @@ public class HallController implements Initializable {
     private HBox hBox;
 
     @FXML
-    private Label seat;
+    private Label pricePerTicket;
 
     @FXML
-    private Label count;
+    private Label totalPrice;
+
+    @FXML
+    private Label seatCount;
 
     @FXML
     private ScrollPane scrollPane;
@@ -70,11 +71,7 @@ public class HallController implements Initializable {
 
     }
 
-    private void addImage(int index, int colIndex, int rowIndex) {
-
-        ShowtimeSeat seat = (ShowtimeSeat)seats.get(index);
-
-        seatView = new SeatView(seat);
+    private void setOnClickEvent(final SeatView seatView, int colIndex, int rowIndex) {
 
         hBox.getChildren().add(seatView);
 
@@ -84,53 +81,65 @@ public class HallController implements Initializable {
 
         seatView.setOnMouseClicked(event -> {
 
-            final SeatState seatState = seatView.getShowtimeSeat().getSeatState();
+            SeatState state = seatView.getShowtimeSeat().getSeatState();
 
-            if(seatState == SeatState.seatStateBooked)
-                return;
+            if (state == SeatState.seatStateEmpty) {
+                seatView.getShowtimeSeat().setSeatState(SeatState.seatStateReserved);
+                selectedSeats.add(seatView.getShowtimeSeat());
+            }
 
-                seat.setSeatState(SeatState.seatStateReserved);
+            if (state == SeatState.seatStateReserved) {
+                seatView.getShowtimeSeat().setSeatState(SeatState.seatStateEmpty);
+                selectedSeats.remove(seatView.getShowtimeSeat());
+            }
 
-                SeatView newSeatView = new SeatView(seat);
+            SeatView newSeatView = new SeatView(seatView.getShowtimeSeat());
 
-                hBox.getChildren().remove(seatView);
-                hBox.getChildren().add(newSeatView);
+            hBox.getChildren().remove(seatView);
 
-                GridPane.setConstraints(newSeatView, colIndex, rowIndex, 1, 1, HPos.CENTER, VPos.CENTER);
 
-                grid.getChildren().addAll(newSeatView);
+            this.seatCount.setText(String.valueOf(selectedSeats.size()));
+            this.pricePerTicket.setText(String.valueOf(seatView.getShowtimeSeat().getShowtime().getPrice()));
+            this.totalPrice.setText(String.valueOf(selectedSeats.size() * seatView.getShowtimeSeat().getShowtime().getPrice()));
 
-                newSeatView.setOnMouseClicked(event1 -> {
-
-                    seat.setSeatState(SeatState.seatStateEmpty);
-
-                    seatView = new SeatView(seat);
-
-                    hBox.getChildren().remove(newSeatView);
-                    hBox.getChildren().add(seatView);
-
-                    GridPane.setConstraints(seatView, colIndex, rowIndex, 1, 1, HPos.CENTER, VPos.CENTER);
-
-                    grid.getChildren().addAll(seatView);
-                });
-
-                selectedSeats.add(newSeatView.getShowtimeSeat());
-
-                this.seat.setText("Seat number: " + newSeatView.getShowtimeSeat().getSeat().getSeatNumber() + "Seat row: " + newSeatView.getShowtimeSeat().getSeat().getRow().getRowNumber());
-                this.count.setText(String.valueOf(selectedSeats.size()));
+            setOnClickEvent(newSeatView, colIndex, rowIndex);
         });
     }
 
-    @FXML
-    public void logout(ActionEvent event) {
+    private void addImage(int index, int colIndex, int rowIndex) {
 
-        OpenForm.openNewForm("/Login.fxml", "Login page");
+        ShowtimeSeat seat = (ShowtimeSeat) seats.get(index);
+
+        seatView = new SeatView(seat);
+
+        setOnClickEvent(seatView, colIndex, rowIndex);
+
+    }
+
+    @FXML
+    public void back(ActionEvent event) {
+
+        FXMLLoader loader = OpenForm.openNewForm("/CustomerPage.fxml", "CustomerPage");
+        CustomerController next = loader.getController();
+        next.setInfo(userId);
+
         CloseForm.closeForm(event);
+    }
+
+    @FXML
+    public void bookSeats(ActionEvent event) {
+
+        FXMLLoader loader = OpenForm.openNewForm("/Ticket.fxml", "Tickets");
+        TicketController next = loader.getController();
+
+        next.setInfo(userId, selectedSeats);
+
+
     }
 
     public void setInfo(int userId, int showtimeId) {
 
-        this.userId     = userId;
+        this.userId = userId;
 
         ShowtimeSeatService seatService = new ShowtimeSeatService();
 

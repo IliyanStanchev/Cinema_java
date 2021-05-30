@@ -1,6 +1,5 @@
 package controllers;
 
-import com.mysql.cj.x.protobuf.MysqlxCursor;
 import entities.User;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -22,7 +21,7 @@ import java.util.ResourceBundle;
 
 public class LoginController implements Initializable {
 
-    private UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
+    private final UserAuthorizationService userAuthorizationService = new UserAuthorizationService();
 
     @FXML
     private TextField usernameField;
@@ -34,7 +33,7 @@ public class LoginController implements Initializable {
     private Label resultLabel;
 
     @FXML
-    private void login(ActionEvent event) throws IOException {
+    private void login(ActionEvent event) {
 
         resultLabel.setText("");
 

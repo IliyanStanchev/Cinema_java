@@ -11,8 +11,6 @@ public class Ticket implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    private int price;
-
     @ManyToOne
     private User user;
 
@@ -25,8 +23,7 @@ public class Ticket implements Serializable {
     public Ticket() {
     }
 
-    public Ticket(int price, User user, Showtime showtime, Seat seat) {
-        this.price = price;
+    public Ticket(User user, Showtime showtime, Seat seat) {
         this.user = user;
         this.showtime = showtime;
         this.seat = seat;
@@ -38,14 +35,6 @@ public class Ticket implements Serializable {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public int getPrice() {
-        return price;
-    }
-
-    public void setPrice(int price) {
-        this.price = price;
     }
 
     public User getUser() {
@@ -77,11 +66,11 @@ public class Ticket implements Serializable {
         if (this == o) return true;
         if (!(o instanceof Ticket)) return false;
         Ticket ticket = (Ticket) o;
-        return getId() == ticket.getId() && getPrice() == ticket.getPrice() && Objects.equals(getUser(), ticket.getUser()) && Objects.equals(getShowtime(), ticket.getShowtime()) && Objects.equals(getSeat(), ticket.getSeat());
+        return getId() == ticket.getId() && Objects.equals(getUser(), ticket.getUser()) && Objects.equals(getShowtime(), ticket.getShowtime()) && Objects.equals(getSeat(), ticket.getSeat());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getPrice(), getUser(), getShowtime(), getSeat());
+        return Objects.hash(getId(), getUser(), getShowtime(), getSeat());
     }
 }

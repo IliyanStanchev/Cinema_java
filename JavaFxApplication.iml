@@ -32,14 +32,10 @@
       <excludeFolder url="file://$MODULE_DIR$/${project.build.directory}/test-classes" />
       <excludeFolder url="file://$MODULE_DIR$/target" />
     </content>
-    <orderEntry type="inheritedJdk" />
+    <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="Hibernate 5.4.11-5.4.11" level="project" />
     <orderEntry type="library" name="Hibernate 5.4.11-5.4.11" level="project" />
-    <orderEntry type="library" name="Spring-5.2.3.RELEASE" level="project" />
-    <orderEntry type="library" name="Spring Integration-5.2.3.RELEASE" level="project" />
-    <orderEntry type="library" name="Spring Batch-2.2.6" level="project" />
-    <orderEntry type="library" name="Spring Data JPA-2.2.4.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.jupiter:junit-jupiter-engine:5.7.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.apiguardian:apiguardian-api:1.1.0" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.junit.platform:junit-platform-engine:1.7.0" level="project" />
@@ -73,15 +69,15 @@
     <orderEntry type="library" name="Maven: com.sun.istack:istack-commons-runtime:3.0.7" level="project" />
     <orderEntry type="library" name="Maven: org.jvnet.staxex:stax-ex:1.8" level="project" />
     <orderEntry type="library" name="Maven: com.sun.xml.fastinfoset:FastInfoset:1.2.15" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:16-ea+4" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:16-ea+4" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:16-ea+4" level="project" />
+    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:16-ea+4" level="project" />
     <orderEntry type="library" name="Maven: org.controlsfx:controlsfx:11.0.3" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:11.0.2" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-base:win:11.0.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.openjfx:javafx-media:11.0.2" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: org.openjfx:javafx-media:win:11.0.2" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:16-ea+4" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-fxml:win:16-ea+4" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:16-ea+4" level="project" />
-    <orderEntry type="library" name="Maven: org.openjfx:javafx-controls:win:16-ea+4" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:16-ea+4" level="project" />
     <orderEntry type="library" name="Maven: org.openjfx:javafx-graphics:win:16-ea+4" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.22" level="project" />
@@ -103,5 +99,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.3.6" level="project" />
     <orderEntry type="library" name="Maven: org.aspectj:aspectjrt:1.9.6" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.26" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
