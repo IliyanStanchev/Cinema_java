@@ -100,7 +100,7 @@ public class CustomerController implements Initializable {
 
             FXMLLoader loader = OpenForm.openNewForm("/SelectedMoviePage.fxml", "Booking page");
             SelectedMovieController next = loader.getController();
-            next.setInfo(userId, showtime.getId());
+            next.setInfo(userId,showtime.getId());
 
             CloseForm.closeFormMouseEvent(event);
 
@@ -112,6 +112,14 @@ public class CustomerController implements Initializable {
 
         OpenForm.openNewForm("/Login.fxml", "Login page");
         CloseForm.closeForm(event);
+    }
+
+    @FXML
+    public void editProfile(ActionEvent event) {
+
+        FXMLLoader loader = OpenForm.openNewForm("/EditUser.fxml", "Edit your profile");
+        EditUserController next = loader.getController();
+        next.setId(userId);
     }
 
     public void setInfo(int id) {
