@@ -1,14 +1,18 @@
 package controllers;
 
+import entities.Movie;
 import entities.Showtime;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import org.controlsfx.control.Rating;
+import services.MovieService;
 import services.ShowtimeService;
 import utils.OpenForm;
 import utils.CloseForm;
@@ -24,6 +28,10 @@ public class SelectedMovieController implements Initializable {
 
     private int userId;
 
+    private Showtime showtime;
+
+    private double ratingAdded;
+
     @FXML
     private ImageView selectedFilmPoster;
 
@@ -34,6 +42,15 @@ public class SelectedMovieController implements Initializable {
     private Text description;
 
     @FXML
+    private Text movieDimension;
+
+    @FXML
+    private Text genre;
+
+    @FXML
+    private Text rating;
+
+    @FXML
     private Text startDate;
 
     @FXML
@@ -42,12 +59,25 @@ public class SelectedMovieController implements Initializable {
     @FXML
     private Text date;
 
- /*   @FXML
-    private Button backButton, bookButton;*/
+    @FXML
+    private Rating ratingBar;
+
+    @FXML
+    private ImageView ageRestrictionImage;
+
+    @FXML
+    private Text ageRestrictionText;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
 
+        ratingBar.ratingProperty().addListener(new ChangeListener<Number>() {
+            @Override
+            public void changed(ObservableValue<? extends Number> ov, Number t, Number ratingNum) {
+
+                ratingAdded = (double) ratingNum;
+            }
+        });
     }
 
     @FXML
@@ -65,6 +95,21 @@ public class SelectedMovieController implements Initializable {
         CloseForm.closeForm(event);
     }
 
+    @FXML
+    public void rateMovie(ActionEvent event){
+
+        MovieService movieService = new MovieService();
+
+        Movie movie = movieService.findById(showtime.getMovie().getId());
+
+        movie.getRating().addRating(ratingAdded);
+
+        movie = movieService.saveOrUpdate(movie);
+
+        rating.setText(String.valueOf(movie.getRating().getRating()).substring(0,3) + "/5");
+
+    }
+
     public void setInfo(int userId,int showtimeId) {
 
         this.showtimeId = showtimeId;
@@ -72,22 +117,43 @@ public class SelectedMovieController implements Initializable {
 
         ShowtimeService showtimeService = new ShowtimeService();
 
-        Showtime showtime = showtimeService.findById(showtimeId);
+        showtime = showtimeService.findById(showtimeId);
 
-        Image image = null;
+        Image movieImage = null;
+        Image ageImage   = null;
         try {
-            image = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
+            ageImage   = new Image(new FileInputStream(showtime.getMovie().getAgeRestriction().getRestrictionImageUrl()));
+            movieImage = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
 
-        selectedFilmPoster.setImage(image);
+        selectedFilmPoster.setImage(movieImage);
+        selectedFilmPoster.setFitHeight(380);
+        selectedFilmPoster.setFitWidth(380);
+
+        ageRestrictionImage.setImage(ageImage);
+
+        ageRestrictionText.setText(showtime.getMovie().getAgeRestriction().getRestrictionText());
 
         title.setText(showtime.getMovie().getTitle());
+
         description.setText(showtime.getMovie().getDescription());
+
         date.setText(showtime.getDate().toString());
+
         startDate.setText(showtime.getStartTime().toString());
+
         endDate.setText(showtime.getEndTime().toString());
+
+        rating.setText(String.valueOf(showtime.getMovie().getRating().getRating()).substring(0,3) + "/5");
+
+        genre.setText(showtime.getMovie().getGenre().getGenreName());
+
+        movieDimension.setText(showtime.getMovieDimension().getDimension());
+
+        ratingBar.setRating(showtime.getMovie().getRating().getRating());
+
 
     }
 

@@ -15,24 +15,32 @@ public class Rating implements Serializable {
     private int numberOfRatings;
 
     @Column(name = "ratings_sum")
-    private int sumOfRatings;
+    private double sumOfRatings;
 
     private double rating;
 
     public Rating() {
     }
 
-    public Rating(int numberOfRatings, int sumOfRatings, double rating) {
+    public Rating(int numberOfRatings, double sumOfRatings, double rating) {
         this.numberOfRatings = numberOfRatings;
         this.sumOfRatings = sumOfRatings;
         this.rating = rating;
     }
 
-    public void addRating(int ratingAdded) {
+    public void addRating(double ratingAdded) {
 
         sumOfRatings += ratingAdded;
         numberOfRatings++;
-        rating = (double) sumOfRatings / numberOfRatings;
+        rating = sumOfRatings / numberOfRatings;
+    }
+
+    public double getSumOfRatings() {
+        return sumOfRatings;
+    }
+
+    public void setSumOfRatings(double sumOfRatings) {
+        this.sumOfRatings = sumOfRatings;
     }
 
     public int getId() {
@@ -51,13 +59,6 @@ public class Rating implements Serializable {
         this.numberOfRatings = numberOfRatings;
     }
 
-    public int getSumOfRatings() {
-        return sumOfRatings;
-    }
-
-    public void setSumOfRatings(int sumOfRatings) {
-        this.sumOfRatings = sumOfRatings;
-    }
 
     public double getRating() {
         return rating;

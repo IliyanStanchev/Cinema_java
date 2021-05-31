@@ -1,18 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<?import org.controlsfx.control.*?>
 
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SelectedMovieController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="480.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.SelectedMovieController">
    <top>
       <GridPane gridLinesVisible="true" prefHeight="44.0" prefWidth="850.0" style="-fx-background-color: #d62bd1;" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -54,52 +48,90 @@
          <children>
             <AnchorPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <ImageView fx:id="selectedFilmPoster" fitHeight="396.0" fitWidth="383.0" layoutX="21.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="selectedFilmPoster" fitHeight="381.0" fitWidth="383.0" layoutX="22.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="ageRestrictionImage" fitHeight="83.0" fitWidth="105.0" layoutX="300.0" layoutY="312.0" pickOnBounds="true" preserveRatio="true" />
+                   <Text fx:id="ageRestrictionText" layoutX="239.0" layoutY="411.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="172.28515657782555">
+                       <font>
+                           <Font size="15.0" />
+                       </font>
+                   </Text>
                </children>
             </AnchorPane>
             <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1">
                <children>
-                  <Text fx:id="title" layoutX="36.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MOVIE TITLE" wrappingWidth="353.2851527631283">
+                  <Text fx:id="title" layoutX="36.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MOVIE TITLE" wrappingWidth="353.2851527631283">
                      <font>
                         <Font size="30.0" />
                      </font>
                   </Text>
-                  <Text fx:id="description" layoutX="36.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" wrappingWidth="353.28515625">
+                  <Text fx:id="description" layoutX="36.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description:" wrappingWidth="353.28515625">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="36.0" layoutY="315.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
+                   <Text layoutX="280.0" layoutY="193.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rating:">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Text>
+                   <Text fx:id="rating" layoutX="350.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="rating">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Text>
+                   <Text layoutX="34.0" layoutY="302.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Genre:">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Text>
+                   <Text fx:id="genre" layoutX="97.0" layoutY="301.0" strokeType="OUTSIDE" strokeWidth="0.0" text="genre">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Text>
+                   <Text layoutX="35.0" layoutY="329.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Showtime dimension:">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Text>
+                   <Text fx:id="movieDimension" layoutX="213.0" layoutY="328.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2D">
+                       <font>
+                           <Font size="18.0" />
+                       </font>
+                   </Text>
+                  <Text layoutX="36.0" layoutY="360.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="34.0" layoutY="352.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:">
+                  <Text layoutX="34.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="From:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text layoutX="36.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:">
+                  <Text layoutX="36.0" layoutY="414.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To:">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="startDate" layoutX="95.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dd-mm-yyyy">
+                  <Text fx:id="startDate" layoutX="93.0" layoutY="413.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dd-mm-yyyy">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
-                  <Text fx:id="endDate" layoutX="95.0" layoutY="387.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dd-mm-yyyy">
+                  <Text fx:id="endDate" layoutX="88.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="dd-mm-yyyy">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
                   <Button layoutX="280.0" layoutY="341.0" mnemonicParsing="false" onAction="#goToBookingScene" prefHeight="53.0" prefWidth="109.0" text="Book Now" />
-                  <Text fx:id="date" layoutX="92.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="107.0">
+                  <Text fx:id="date" layoutX="90.0" layoutY="359.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="107.0">
                      <font>
                         <Font size="18.0" />
                      </font>
                   </Text>
+                   <Rating fx:id="ratingBar" layoutX="236.0" layoutY="218.0" prefHeight="32.0" prefWidth="215.0" />
+                   <Button layoutX="280.0" layoutY="268.0" mnemonicParsing="false" onAction="#rateMovie" prefHeight="53.0" prefWidth="109.0" text="Rate Now" />
                </children>
             </AnchorPane>
          </children>
