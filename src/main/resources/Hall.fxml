@@ -53,17 +53,17 @@
    <center>
       <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
         <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="608.0" prefWidth="1007.0">
+          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="608.0" prefWidth="1007.0" style="-fx-background-color: white;">
                <children>
-                  <Label layoutX="773.0" layoutY="52.0" text="Number of seats:">
+                  <Label layoutX="41.0" layoutY="478.0" text="Number of seats:">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label layoutX="773.0" layoutY="401.0" text="Total price:">
+                  <Label layoutX="316.0" layoutY="528.0" text="Total price:">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <GridPane fx:id="grid" layoutX="39.0" layoutY="113.0" prefHeight="383.0" prefWidth="691.0" style="-fx-background-color: white;">
+                  <GridPane fx:id="grid" layoutX="85.0" layoutY="58.0" prefHeight="420.0" prefWidth="837.0" style="-fx-background-color: white;">
                      <columnConstraints>
                         <ColumnConstraints />
                      </columnConstraints>
@@ -72,23 +72,23 @@
                         <RowConstraints />
                      </rowConstraints>
                   </GridPane>
-                  <Label fx:id="seatCount" layoutX="918.0" layoutY="52.0">
+                  <Label fx:id="seatCount" layoutX="184.0" layoutY="478.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label layoutX="771.0" layoutY="359.0" text="Price per ticket:">
+                  <Label layoutX="316.0" layoutY="478.0" text="Price per ticket:">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="pricePerTicket" layoutX="918.0" layoutY="359.0">
+                  <Label fx:id="pricePerTicket" layoutX="449.0" layoutY="478.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Label fx:id="totalPrice" layoutX="918.0" layoutY="401.0">
+                  <Label fx:id="totalPrice" layoutX="448.0" layoutY="528.0">
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Button layoutX="807.0" layoutY="491.0" mnemonicParsing="false" onAction="#bookSeats" style="-fx-background-color: d66fd3;" text="Book">
+                  <Button layoutX="694.0" layoutY="491.0" mnemonicParsing="false" onAction="#bookSeats" prefHeight="74.0" prefWidth="171.0" style="-fx-background-color: d66fd3;" text="Book">
                      <font>
                         <Font name="Tw Cen MT" size="40.0" />
                      </font></Button>

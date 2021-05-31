@@ -4,7 +4,9 @@ import entities.*;
 import enums.SeatState;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -61,6 +63,10 @@ public class TicketController implements Initializable {
 
     public void cancel(ActionEvent event) {
 
+        FXMLLoader loader = OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
+        CustomerController next = loader.getController();
+        next.setInfo(user.getId());
+
         CloseForm.closeForm(event);
     }
 
@@ -78,6 +84,12 @@ public class TicketController implements Initializable {
             showtimeSeatService.update(seat);
 
         }
+
+        FXMLLoader loader = OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
+        CustomerController next = loader.getController();
+        next.setInfo(user.getId());
+
+        CloseForm.closeForm(event);
     }
 
     public void setInfo(int userId, List selectedSeats) {
@@ -111,11 +123,16 @@ public class TicketController implements Initializable {
         String reservedSeats = "";
         double totalPrice = 0;
 
+        int br = 0;
+
         for (Object o : seats) {
 
-            ShowtimeSeat seat = (ShowtimeSeat) o;
+            br++;
+            if(br%2 ==0)
+                reservedSeats += "\n";
 
-            reservedSeats += "Seat: " + seat.getSeat().getSeatNumber() + "Row: " + seat.getSeat().getRow().getRowNumber() + ", ";
+            ShowtimeSeat seat = (ShowtimeSeat) o;
+            reservedSeats += "Seat " + seat.getSeat().getSeatNumber() + " in Row " + seat.getSeat().getRow().getRowNumber() + "; ";
             totalPrice += seat.getShowtime().getPrice();
 
         }

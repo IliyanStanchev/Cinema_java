@@ -121,6 +121,7 @@ public class SelectedMovieController implements Initializable {
 
         Image movieImage = null;
         Image ageImage   = null;
+
         try {
             ageImage   = new Image(new FileInputStream(showtime.getMovie().getAgeRestriction().getRestrictionImageUrl()));
             movieImage = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
@@ -129,8 +130,6 @@ public class SelectedMovieController implements Initializable {
         }
 
         selectedFilmPoster.setImage(movieImage);
-        selectedFilmPoster.setFitHeight(380);
-        selectedFilmPoster.setFitWidth(380);
 
         ageRestrictionImage.setImage(ageImage);
 

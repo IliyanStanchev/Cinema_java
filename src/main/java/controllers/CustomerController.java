@@ -50,8 +50,6 @@ public class CustomerController implements Initializable {
 
         hBox = new HBox();
 
-        scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
-
         grid.setPadding(new Insets(7, 7, 7, 7));
         grid.setHgap(10);
         grid.setVgap(10);
@@ -62,20 +60,14 @@ public class CustomerController implements Initializable {
 
         showtimes = showtimeService.getAll();
 
-        final int rows = (showtimes.size() / 4) + 1;
         final int columns = 4;
+        final int rows = (showtimes.size() / columns) + 1;
 
-        int imageIndex = 0;
-
-        for (int i = 0; i < rows; i++) {
-            for (int j = 0; j < columns; j++) {
-
-                if (imageIndex < showtimes.size()) {
-                    addImage(imageIndex, j, i);
-                    imageIndex++;
-                }
-            }
+        for (int i = 0; i < showtimes.size(); i++) {
+                    addImage(i, i, 1);
         }
+
+        scrollPane.setContent(grid);
     }
 
     private void addImage(int index, int colIndex, int rowIndex) {
@@ -88,8 +80,8 @@ public class CustomerController implements Initializable {
             e.printStackTrace();
         }
         imageView = new ImageView();
-        imageView.setFitWidth(160);
-        imageView.setFitHeight(220);
+        imageView.setFitWidth(250);
+        imageView.setFitHeight(380);
         imageView.setImage(image);
 
         hBox.getChildren().add(imageView);

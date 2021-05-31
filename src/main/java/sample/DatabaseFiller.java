@@ -56,6 +56,7 @@ public class DatabaseFiller {
 
         Rating ratingGodzilla = ratingDAO.saveOrUpdate(new Rating(0, 0, 0));
         Rating ratingMortalKombat = ratingDAO.saveOrUpdate(new Rating(0, 0, 0));
+        Rating ratingFast9  = ratingDAO.saveOrUpdate(new Rating(0,0,0));
 
 
         Movie godzillaVsKong = movieDAO.saveOrUpdate(new Movie(0,
@@ -69,11 +70,19 @@ public class DatabaseFiller {
 
         Movie mortalKombat = movieDAO.saveOrUpdate(new Movie(0,
                 "Mortal Kombat",
-                "Cole trains with experienced warriors Liu Kang",
+                "MMA fighter Cole Young seeks out Earth's greatest champions in order to stand against the enemies of Outworld in a high stakes battle for the universe.",
                 action,
                 ratingMortalKombat,
                 ageRestrictionRPlus,
                 "src/main/resources/MovieImages/Mortal Kombat.jpg"));
+
+        Movie fast9 = movieDAO.saveOrUpdate(new Movie(0,
+                "Fast and furious 9",
+                "Vin Diesel's Dom Toretto is leading a quiet life off the grid with Letty and his son, little Brian, but they know that danger always lurks just over their peaceful horizon. This time, that threat will force Dom to confront the sins of his past. ",
+                action,
+                ratingFast9,
+                ageRestrictionR,
+                "src/main/resources/MovieImages/Fast 9.jpg"));
 
         ShowtimeDAO showtimeDAO = new ShowtimeDAO();
 
@@ -100,6 +109,15 @@ public class DatabaseFiller {
                 7.50,
                 godzillaVsKong,
                 movieDimension2D));
+
+        Showtime showtimeFast9 = showtimeDAO.saveOrUpdate(new Showtime(0,
+                LocalDate.now(),
+                LocalTime.of(18, 00, 00),
+                LocalTime.of(20, 00, 00),
+                9.50,
+                fast9,
+                movieDimension4D));
+
 
         RowDAO rowDAO = new RowDAO();
 
@@ -144,6 +162,7 @@ public class DatabaseFiller {
             showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0, showtimeGodzillaVsKong2, seat, SeatState.seatStateEmpty));
             showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0, showtimeGodzillaVsKong, seat, SeatState.seatStateEmpty));
             showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0, showtimeMortalKombat, seat, SeatState.seatStateEmpty));
+            showtimeSeatDAO.saveOrUpdate(new ShowtimeSeat(0, showtimeFast9, seat, SeatState.seatStateEmpty));
         }
 
     }

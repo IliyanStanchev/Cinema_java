@@ -80,7 +80,6 @@ public class HallController implements Initializable {
         hBox.getChildren().add(seatView);
 
         GridPane.setConstraints(seatView, colIndex, rowIndex, 1, 1, HPos.CENTER, VPos.CENTER);
-
         grid.getChildren().addAll(seatView);
 
         seatView.setOnMouseClicked(event -> {
@@ -100,7 +99,6 @@ public class HallController implements Initializable {
             SeatView newSeatView = new SeatView(seatView.getShowtimeSeat());
 
             hBox.getChildren().remove(seatView);
-
 
             this.seatCount.setText(String.valueOf(selectedSeats.size()));
             this.pricePerTicket.setText(String.valueOf(seatView.getShowtimeSeat().getShowtime().getPrice()));
@@ -123,9 +121,14 @@ public class HallController implements Initializable {
     @FXML
     public void bookSeats(ActionEvent event) {
 
+        if(selectedSeats.size() == 0)
+            return;
+
         FXMLLoader loader = OpenForm.openNewFormOnTop("/Ticket.fxml", "Tickets");
         TicketController next = loader.getController();
         next.setInfo(userId, selectedSeats);
+
+        CloseForm.closeForm(event);
     }
 
     public void setInfo(int userId, int showtimeId) {
