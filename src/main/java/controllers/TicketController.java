@@ -59,13 +59,8 @@ public class TicketController implements Initializable {
 
     }
 
-    public void logout(ActionEvent event) {
-        OpenForm.openNewForm("/Login.fxml", "Login");
-        CloseForm.closeForm(event);
-    }
+    public void cancel(ActionEvent event) {
 
-    public void back(ActionEvent event) {
-        OpenForm.openNewForm("/Hall.fxml", "Choose Seats");
         CloseForm.closeForm(event);
     }
 

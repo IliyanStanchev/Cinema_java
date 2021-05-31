@@ -67,14 +67,8 @@ public class LoginController implements Initializable {
 
     @FXML
     private void register() throws IOException {
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/Register.fxml"));
-        Parent root = loader.load();
-        Stage stage = new Stage();
-        stage.setTitle("User registration");
-        stage.setScene(new Scene(root));
-        stage.setResizable(false);
-        stage.setAlwaysOnTop(true);
-        stage.show();
+
+        FXMLLoader loader = OpenForm.openNewFormOnTop("/Register.fxml", "Register");
     }
 
     @Override

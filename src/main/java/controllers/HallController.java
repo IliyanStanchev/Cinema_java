@@ -123,7 +123,7 @@ public class HallController implements Initializable {
     @FXML
     public void bookSeats(ActionEvent event) {
 
-        FXMLLoader loader = OpenForm.openNewForm("/Ticket.fxml", "Tickets");
+        FXMLLoader loader = OpenForm.openNewFormOnTop("/Ticket.fxml", "Tickets");
         TicketController next = loader.getController();
         next.setInfo(userId, selectedSeats);
     }
