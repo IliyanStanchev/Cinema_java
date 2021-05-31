@@ -71,7 +71,9 @@ public class LoginController implements Initializable {
         Parent root = loader.load();
         Stage stage = new Stage();
         stage.setTitle("User registration");
-        stage.setScene(new Scene(root, 600, 550));
+        stage.setScene(new Scene(root));
+        stage.setResizable(false);
+        stage.setAlwaysOnTop(true);
         stage.show();
     }
 

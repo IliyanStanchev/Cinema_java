@@ -52,7 +52,7 @@ public class SelectedMovieController implements Initializable {
 
     @FXML
     public void goToBookingScene(ActionEvent event) {
-        FXMLLoader loader = OpenForm.openNewForm("/Hall.fxml", "Choose seat");
+        FXMLLoader loader = OpenForm.openNewForm("/Hall.fxml", "Choose seats");
         HallController next = loader.getController();
 
         next.setInfo(userId,showtimeId);

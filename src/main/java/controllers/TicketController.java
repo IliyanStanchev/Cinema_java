@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import services.ShowtimeSeatService;
 import services.TicketService;
 import services.UserService;
+import utils.CloseForm;
 import utils.OpenForm;
 
 import java.io.FileInputStream;
@@ -60,7 +61,12 @@ public class TicketController implements Initializable {
 
     public void logout(ActionEvent event) {
         OpenForm.openNewForm("/Login.fxml", "Login");
+        CloseForm.closeForm(event);
+    }
 
+    public void back(ActionEvent event) {
+        OpenForm.openNewForm("/Hall.fxml", "Choose Seats");
+        CloseForm.closeForm(event);
     }
 
     public void purchase(ActionEvent event) {

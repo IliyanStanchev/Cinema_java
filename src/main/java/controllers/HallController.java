@@ -9,11 +9,14 @@ package controllers;
         import javafx.geometry.HPos;
         import javafx.geometry.Insets;
         import javafx.geometry.VPos;
+        import javafx.scene.Parent;
+        import javafx.scene.Scene;
         import javafx.scene.control.Label;
         import javafx.scene.control.ScrollPane;
         import javafx.scene.image.Image;
         import javafx.scene.layout.GridPane;
         import javafx.scene.layout.HBox;
+        import javafx.stage.Stage;
         import services.ShowtimeSeatService;
         import utils.CloseForm;
         import utils.OpenForm;
@@ -67,8 +70,8 @@ public class HallController implements Initializable {
         scrollPane.setHbarPolicy(ScrollPane.ScrollBarPolicy.NEVER);
 
         grid.setPadding(new Insets(20, 20, 20, 20));
-        grid.setHgap(10);
-        grid.setVgap(10);
+        grid.setHgap(20);
+        grid.setVgap(20);
 
     }
 
@@ -122,7 +125,6 @@ public class HallController implements Initializable {
 
         FXMLLoader loader = OpenForm.openNewForm("/Ticket.fxml", "Tickets");
         TicketController next = loader.getController();
-
         next.setInfo(userId, selectedSeats);
     }
 

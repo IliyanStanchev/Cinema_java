@@ -1,154 +1,150 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
-<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity"
-            minWidth="-Infinity"
-            prefHeight="550.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1"
-            fx:controller="controllers.RegisterController">
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="681.0" prefWidth="667.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.RegisterController">
     <top>
-        <AnchorPane prefHeight="86.0" prefWidth="600.0" style="-fx-background-color: #d62bd1;"
-                    BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="95.0" prefWidth="667.0" style="-fx-background-color: #d62bd1;" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="67.0" fitWidth="78.0" layoutX="144.0" layoutY="10.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="98.0" fitWidth="135.0" layoutX="82.0" layoutY="4.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/CinemaIcon.png"/>
+                        <Image url="@Images/CinemaIcon.png" />
                     </image>
                 </ImageView>
-                <Text layoutX="231.0" layoutY="54.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cinema Vision">
+                <Text layoutX="131.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-text-alignment: center;" text="Cinema Vision" wrappingWidth="405.9999989271164">
                     <font>
-                        <Font name="Freestyle Script" size="41.0"/>
+                        <Font name="Freestyle Script" size="90.0" />
                     </font>
                 </Text>
             </children>
         </AnchorPane>
     </top>
     <left>
-        <AnchorPane prefHeight="460.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+        <AnchorPane prefHeight="656.0" prefWidth="667.0" BorderPane.alignment="CENTER">
             <children>
-                <ImageView fitHeight="88.0" fitWidth="106.0" layoutX="256.0" layoutY="14.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="97.0" fitWidth="110.0" layoutX="285.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/UsersIcon.png"/>
+                        <Image url="@Images/UsersIcon.png" />
                     </image>
                 </ImageView>
-                <Text fill="#d62bd1" layoutX="221.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                      text="User Registration">
+                <Text layoutX="182.0" layoutY="136.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User Registration">
                     <font>
-                        <Font size="21.0"/>
+                        <Font name="Tw Cen MT" size="45.0" />
                     </font>
                 </Text>
-                <TextField fx:id="usernameField" layoutX="114.0" layoutY="160.0" onKeyReleased="#validateUsername"
-                           promptText="Username"
-                           style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
-                <PasswordField fx:id="passwordField" layoutX="114.0" layoutY="208.0" onKeyReleased="#validatePassword"
-                               promptText="Password"
-                               style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
-                <PasswordField fx:id="confirmPasswordField" layoutX="114.0" layoutY="254.0"
-                               onKeyReleased="#isPasswordSame" promptText="Confirm password"
-                               style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
-                <TextField fx:id="emailField" layoutX="114.0" layoutY="297.0" onKeyReleased="#validateEmail"
-                           promptText="E-mail"
-                           style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
-                <TextField fx:id="phoneNumberField" layoutX="351.0" layoutY="251.0" onKeyReleased="#validatePhoneNumber"
-                           promptText="Phone number"
-                           style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
-                <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="70.0" layoutY="161.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <TextField fx:id="usernameField" layoutX="82.0" layoutY="172.0" onKeyReleased="#validateUsername" prefHeight="42.0" prefWidth="216.0" promptText="Username" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+                <PasswordField fx:id="passwordField" layoutX="86.0" layoutY="240.0" onKeyReleased="#validatePassword" prefHeight="41.0" prefWidth="215.0" promptText="Password" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font></PasswordField>
+                <PasswordField fx:id="confirmPasswordField" layoutX="83.0" layoutY="309.0" onKeyReleased="#isPasswordSame" prefHeight="39.0" prefWidth="220.0" promptText="Confirm password" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font></PasswordField>
+                <TextField fx:id="emailField" layoutX="85.0" layoutY="376.0" onKeyReleased="#validateEmail" prefHeight="44.0" prefWidth="212.0" promptText="E-mail" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+                <TextField fx:id="phoneNumberField" layoutX="402.0" layoutY="353.0" onKeyReleased="#validatePhoneNumber" prefHeight="40.0" prefWidth="231.0" promptText="Phone number" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+                <ImageView fitHeight="41.0" fitWidth="58.0" layoutX="37.0" layoutY="173.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/UserIcon.png"/>
+                        <Image url="@Images/UserIcon.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="26.0" fitWidth="32.0" layoutX="71.0" layoutY="209.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="34.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/PasswordIcon.png"/>
+                        <Image url="@Images/PasswordIcon.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="26.0" fitWidth="32.0" layoutX="71.0" layoutY="255.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="37.0" fitWidth="58.0" layoutX="40.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/PasswordIcon.png"/>
+                        <Image url="@Images/PasswordIcon.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="28.0" fitWidth="31.0" layoutX="71.0" layoutY="297.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="38.0" fitWidth="58.0" layoutX="39.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/EmailIcon.png"/>
+                        <Image url="@Images/EmailIcon.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="28.0" fitWidth="28.0" layoutX="317.0" layoutY="251.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="34.0" fitWidth="38.0" layoutX="350.0" layoutY="362.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/PhoneIcon.png"/>
+                        <Image url="@Images/PhoneIcon.png" />
                     </image>
                 </ImageView>
-                <Button fx:id="register" layoutX="223.0" layoutY="396.0" mnemonicParsing="false" onAction="#register"
-                        prefHeight="26.0" prefWidth="148.0" style="-fx-background-color: #d62bd1;" text="Register"
-                        textFill="WHITE"/>
-                <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="190.0" layoutY="362.0"
-                       prefHeight="18.0" prefWidth="220.0" textFill="RED"/>
-                <Label fx:id="emailLabel" layoutX="113.0" layoutY="330.0" prefHeight="18.0" prefWidth="176.0"
-                       textFill="RED">
+                <Button fx:id="register" layoutX="242.0" layoutY="483.0" mnemonicParsing="false" onAction="#register" prefHeight="57.0" prefWidth="184.0" style="-fx-background-color: d66fd3;" text="Register">
+               <font>
+                  <Font name="Tw Cen MT" size="40.0" />
+               </font></Button>
+                <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="131.0" layoutY="445.0" prefHeight="21.0" prefWidth="405.0" style="-fx-alignment: center;" textFill="RED">
+               <font>
+                  <Font size="20.0" />
+               </font></Label>
+                <Label fx:id="emailLabel" layoutX="83.0" layoutY="427.0" prefHeight="18.0" prefWidth="213.0" textFill="RED">
                     <font>
-                        <Font size="11.0"/>
+                        <Font size="11.0" />
                     </font>
                 </Label>
-                <Label fx:id="usernameLabel" layoutX="114.0" layoutY="193.0" prefHeight="18.0" prefWidth="172.0"
-                       textFill="RED">
+                <Label fx:id="usernameLabel" layoutX="79.0" layoutY="226.0" prefHeight="18.0" prefWidth="221.0" textFill="RED">
                     <font>
-                        <Font size="11.0"/>
+                        <Font size="11.0" />
                     </font>
                 </Label>
-                <Label fx:id="passwordLabel" layoutX="113.0" layoutY="240.0" prefHeight="18.0" prefWidth="172.0"
-                       textFill="RED">
+                <Label fx:id="passwordLabel" layoutX="83.0" layoutY="288.0" prefHeight="18.0" prefWidth="216.0" textFill="RED">
                     <font>
-                        <Font size="11.0"/>
+                        <Font size="11.0" />
                     </font>
                 </Label>
-                <Label fx:id="confirmPasswordLabel" layoutX="113.0" layoutY="287.0" prefHeight="18.0" prefWidth="178.0"
-                       textFill="RED">
+                <Label fx:id="confirmPasswordLabel" layoutX="83.0" layoutY="353.0" prefHeight="18.0" prefWidth="219.0" textFill="RED">
                     <font>
-                        <Font size="11.0"/>
+                        <Font size="11.0" />
                     </font>
                 </Label>
-                <Label fx:id="phoneNumberLabel" layoutX="348.0" layoutY="286.0" prefHeight="18.0" prefWidth="194.0"
-                       textFill="RED">
+                <Label fx:id="phoneNumberLabel" layoutX="402.0" layoutY="398.0" prefHeight="18.0" prefWidth="231.0" textFill="RED">
                     <font>
-                        <Font size="11.0"/>
+                        <Font size="11.0" />
                     </font>
                 </Label>
-                <TextField fx:id="firstNameField" layoutX="351.0" layoutY="161.0" onKeyReleased="#validateFirstName"
-                           promptText="First name"
-                           style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
-                <TextField fx:id="lastNameField" layoutX="351.0" layoutY="205.0" onKeyReleased="#validateLastName"
-                           promptText="Last name"
-                           style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;"/>
-                <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="316.0" layoutY="161.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <TextField fx:id="firstNameField" layoutX="398.0" layoutY="214.0" onKeyReleased="#validateFirstName" prefHeight="42.0" prefWidth="230.0" promptText="First name" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+                <TextField fx:id="lastNameField" layoutX="397.0" layoutY="288.0" onKeyReleased="#validateLastName" prefHeight="43.0" prefWidth="234.0" promptText="Last name" style="-fx-background-color: transparent; -fx-border-color: #d62bd1; -fx-border-width: 0px 0px 2px 0px;">
+               <font>
+                  <Font size="18.0" />
+               </font></TextField>
+                <ImageView fitHeight="45.0" fitWidth="46.0" layoutX="341.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/nameIcon.png"/>
+                        <Image url="@Images/nameIcon.png" />
                     </image>
                 </ImageView>
-                <ImageView fitHeight="29.0" fitWidth="29.0" layoutX="316.0" layoutY="207.0" pickOnBounds="true"
-                           preserveRatio="true">
+                <ImageView fitHeight="44.0" fitWidth="51.0" layoutX="345.0" layoutY="287.0" pickOnBounds="true" preserveRatio="true">
                     <image>
-                        <Image url="@Images/nameIcon.png"/>
+                        <Image url="@Images/nameIcon.png" />
                     </image>
                 </ImageView>
-                <Label fx:id="firstNameLabel" layoutX="348.0" layoutY="192.0" prefHeight="18.0" prefWidth="194.0"
-                       textFill="RED">
+                <Label fx:id="firstNameLabel" layoutX="402.0" layoutY="262.0" prefHeight="18.0" prefWidth="225.0" textFill="RED">
                     <font>
-                        <Font size="11.0"/>
+                        <Font size="11.0" />
                     </font>
                 </Label>
-                <Label fx:id="lastNameLabel" layoutX="348.0" layoutY="237.0" prefHeight="18.0" prefWidth="194.0"
-                       textFill="RED">
+                <Label fx:id="lastNameLabel" layoutX="396.0" layoutY="338.0" prefHeight="18.0" prefWidth="235.0" textFill="RED">
                     <font>
-                        <Font size="11.0"/>
+                        <Font size="11.0" />
                     </font>
                 </Label>
             </children>
