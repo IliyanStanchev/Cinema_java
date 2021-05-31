@@ -80,7 +80,6 @@ public class HallController implements Initializable {
         hBox.getChildren().add(seatView);
 
         GridPane.setConstraints(seatView, colIndex, rowIndex, 1, 1, HPos.CENTER, VPos.CENTER);
-
         grid.getChildren().addAll(seatView);
 
         seatView.setOnMouseClicked(event -> {

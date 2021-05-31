@@ -18,8 +18,8 @@ public class SeatView extends ImageView {
 
     public SeatView(ShowtimeSeat seat) {
         this.seat = seat;
-        setFitHeight(50);
-        setFitWidth(50);
+        setFitHeight(80);
+        setFitWidth(80);
         setImage();
     }
 

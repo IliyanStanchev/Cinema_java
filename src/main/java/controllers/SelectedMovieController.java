@@ -129,8 +129,8 @@ public class SelectedMovieController implements Initializable {
         }
 
         selectedFilmPoster.setImage(movieImage);
-        selectedFilmPoster.setFitHeight(380);
-        selectedFilmPoster.setFitWidth(380);
+        //selectedFilmPoster.setFitHeight(380);
+       // selectedFilmPoster.setFitWidth(380);
 
         ageRestrictionImage.setImage(ageImage);
 

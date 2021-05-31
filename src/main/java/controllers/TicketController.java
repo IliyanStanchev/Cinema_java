@@ -115,7 +115,7 @@ public class TicketController implements Initializable {
 
             ShowtimeSeat seat = (ShowtimeSeat) o;
 
-            reservedSeats += "Seat: " + seat.getSeat().getSeatNumber() + "Row: " + seat.getSeat().getRow().getRowNumber() + ", ";
+            reservedSeats += "Seat " + seat.getSeat().getSeatNumber() + "in Row " + seat.getSeat().getRow().getRowNumber() + "; ";
             totalPrice += seat.getShowtime().getPrice();
 
         }
