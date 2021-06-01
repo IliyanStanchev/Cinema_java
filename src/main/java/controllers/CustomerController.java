@@ -80,8 +80,8 @@ public class CustomerController implements Initializable {
             e.printStackTrace();
         }
         imageView = new ImageView();
-        imageView.setFitWidth(250);
-        imageView.setFitHeight(380);
+        imageView.setFitWidth(220);
+        imageView.setFitHeight(330);
         imageView.setImage(image);
 
         hBox.getChildren().add(imageView);

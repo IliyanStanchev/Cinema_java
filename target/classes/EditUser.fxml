@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditUserController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="633.0" prefWidth="668.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.EditUserController">
    <top>
       <AnchorPane prefHeight="78.0" prefWidth="667.0" style="-fx-background-color: #d62bd1;" BorderPane.alignment="CENTER">
          <children>
@@ -61,17 +55,17 @@
                   <Image url="@Images/UserIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="34.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="42.0" layoutX="37.0" layoutY="243.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/PasswordIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="37.0" fitWidth="58.0" layoutX="36.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="37.0" fitWidth="58.0" layoutX="37.0" layoutY="310.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/PasswordIcon.png" />
                </image>
             </ImageView>
-            <ImageView fitHeight="38.0" fitWidth="58.0" layoutX="39.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="38.0" fitWidth="58.0" layoutX="37.0" layoutY="379.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/EmailIcon.png" />
                </image>
@@ -81,9 +75,9 @@
                   <Image url="@Images/PhoneIcon.png" />
                </image>
             </ImageView>
-            <Button layoutX="176.0" layoutY="471.0" mnemonicParsing="false" onAction="#save" prefHeight="70.0" prefWidth="158.0" style="-fx-background-color: d66fd3;" text="Save">
+            <Button layoutX="205.0" layoutY="471.0" mnemonicParsing="false" onAction="#save" prefHeight="37.0" prefWidth="129.0" style="-fx-background-color: d66fd3;" text="Save">
                <font>
-                  <Font name="Tw Cen MT" size="38.0" />
+                  <Font name="Tw Cen MT" size="27.0" />
                </font></Button>
             <Label fx:id="resultLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="139.0" layoutY="430.0" prefHeight="21.0" prefWidth="405.0" style="-fx-alignment: center;" textFill="RED">
                <font>
@@ -122,7 +116,7 @@
                <font>
                   <Font size="18.0" />
                </font></TextField>
-            <ImageView fitHeight="45.0" fitWidth="46.0" layoutX="343.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="45.0" fitWidth="46.0" layoutX="344.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@Images/nameIcon.png" />
                </image>
@@ -142,9 +136,9 @@
                   <Font size="11.0" />
                </font>
             </Label>
-            <Button layoutX="350.0" layoutY="480.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: d66fd3;" text="Cancel">
+            <Button layoutX="350.0" layoutY="471.0" mnemonicParsing="false" onAction="#cancel" style="-fx-background-color: d66fd3;" text="Cancel">
                <font>
-                  <Font name="Tw Cen MT" size="30.0" />
+                  <Font name="Tw Cen MT" size="27.0" />
                </font>
             </Button>
             <Label fx:id="label" layoutY="97.0" prefHeight="38.0" prefWidth="668.0" style="-fx-alignment: center;" text="Label">
