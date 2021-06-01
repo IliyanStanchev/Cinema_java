@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HallController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HallController">
    <top>
       <GridPane prefHeight="63.0" prefWidth="1010.0" style="-fx-background-color: #d62bd1;" BorderPane.alignment="CENTER">
         <columnConstraints>
@@ -88,9 +82,9 @@
                      <font>
                         <Font size="18.0" />
                      </font></Label>
-                  <Button layoutX="694.0" layoutY="491.0" mnemonicParsing="false" onAction="#bookSeats" prefHeight="74.0" prefWidth="171.0" style="-fx-background-color: d66fd3;" text="Book">
+                  <Button layoutX="787.0" layoutY="492.0" mnemonicParsing="false" onAction="#bookSeats" prefHeight="53.0" prefWidth="136.0" style="-fx-background-color: d66fd3;" text="Book">
                      <font>
-                        <Font name="Tw Cen MT" size="40.0" />
+                        <Font name="Tw Cen MT" size="29.0" />
                      </font></Button>
                </children>
             </AnchorPane>
