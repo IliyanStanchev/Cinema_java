@@ -109,7 +109,6 @@ public class RegisterController {
 
         resultLabel.setText("Successfully created account!");
         resultLabel.setTextFill(Color.web("green"));
-
     }
 
     @FXML
