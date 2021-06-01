@@ -33,7 +33,7 @@
                <children>
                   <Button mnemonicParsing="false" onAction="#editProfile" prefHeight="64.0" prefWidth="171.0" style="-fx-background-color: d66fd3;" text="Edit Profile">
                      <font>
-                        <Font name="Tw Cen MT" size="30.0" />
+                        <Font name="Tw Cen MT" size="26.0" />
                      </font></Button>
                </children>
             </AnchorPane>
@@ -41,7 +41,7 @@
                <children>
                   <Button fx:id="logoutButton" layoutY="1.0" mnemonicParsing="false" onAction="#logout" prefHeight="63.0" prefWidth="120.0" style="-fx-background-color: d66fd3;" text="Logout">
                      <font>
-                        <Font name="Tw Cen MT" size="30.0" />
+                        <Font name="Tw Cen MT" size="26.0" />
                      </font></Button>
                </children>
             </AnchorPane>
