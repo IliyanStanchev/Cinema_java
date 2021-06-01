@@ -55,6 +55,7 @@ public class LoginController implements Initializable {
         if (user == null) {
             resultLabel.setText("Wrong username or password!");
             usernameField.requestFocus();
+
             return;
         }
 
