@@ -68,7 +68,6 @@ public class EditUserController implements Initializable {
     @FXML
     private Label secondNameLabel;
 
-
     private int id;
     private User user;
 
