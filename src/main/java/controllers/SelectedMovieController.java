@@ -14,8 +14,9 @@ import javafx.scene.text.Text;
 import org.controlsfx.control.Rating;
 import services.MovieService;
 import services.ShowtimeService;
-import utils.OpenForm;
 import utils.CloseForm;
+import utils.OpenForm;
+
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.net.URL;
@@ -85,18 +86,12 @@ public class SelectedMovieController implements Initializable {
         FXMLLoader loader = OpenForm.openNewForm("/Hall.fxml", "Choose seats");
         HallController next = loader.getController();
 
-        next.setInfo(userId,showtimeId);
+        next.setInfo(userId, showtimeId);
         CloseForm.closeForm(event);
     }
 
     @FXML
-    public void backToPrevScene(ActionEvent event) {
-        OpenForm.openNewForm("/CustomerPage.fxml", "Main page");
-        CloseForm.closeForm(event);
-    }
-
-    @FXML
-    public void rateMovie(ActionEvent event){
+    public void rateMovie(ActionEvent event) {
 
         MovieService movieService = new MovieService();
 
@@ -106,24 +101,24 @@ public class SelectedMovieController implements Initializable {
 
         movie = movieService.saveOrUpdate(movie);
 
-        rating.setText(String.valueOf(movie.getRating().getRating()).substring(0,3) + "/5");
+        rating.setText(String.valueOf(movie.getRating().getRating()).substring(0, 3) + "/5");
 
     }
 
-    public void setInfo(int userId,int showtimeId) {
+    public void setInfo(int userId, int showtimeId) {
 
         this.showtimeId = showtimeId;
-        this.userId     = userId;
+        this.userId = userId;
 
         ShowtimeService showtimeService = new ShowtimeService();
 
         showtime = showtimeService.findById(showtimeId);
 
         Image movieImage = null;
-        Image ageImage   = null;
+        Image ageImage = null;
 
         try {
-            ageImage   = new Image(new FileInputStream(showtime.getMovie().getAgeRestriction().getRestrictionImageUrl()));
+            ageImage = new Image(new FileInputStream(showtime.getMovie().getAgeRestriction().getRestrictionImageUrl()));
             movieImage = new Image(new FileInputStream(showtime.getMovie().getImageUrl()));
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -145,7 +140,7 @@ public class SelectedMovieController implements Initializable {
 
         endDate.setText(showtime.getEndTime().toString());
 
-        rating.setText(String.valueOf(showtime.getMovie().getRating().getRating()).substring(0,3) + "/5");
+        rating.setText(String.valueOf(showtime.getMovie().getRating().getRating()).substring(0, 3) + "/5");
 
         genre.setText(showtime.getMovie().getGenre().getGenreName());
 

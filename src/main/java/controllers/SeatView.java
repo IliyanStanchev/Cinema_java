@@ -10,11 +10,11 @@ import java.io.FileNotFoundException;
 
 public class SeatView extends ImageView {
 
-    private final String bookedSeatIcon = "src/main/resources/Images/BookedSeatIcon.png";
-    private final String reservedSeatIcon = "src/main/resources/Images/ReservedSeatIcon.png";
-    private final String emptySeatIcon = "src/main/resources/Images/EmptySeatIcon.png";
+    private final String bookedSeatIcon     = "src/main/resources/Images/BookedSeatIcon.png";
+    private final String reservedSeatIcon   = "src/main/resources/Images/ReservedSeatIcon.png";
+    private final String emptySeatIcon      = "src/main/resources/Images/EmptySeatIcon.png";
 
-    private final ShowtimeSeat seat;
+    private ShowtimeSeat seat;
 
     public SeatView(ShowtimeSeat seat) {
         this.seat = seat;

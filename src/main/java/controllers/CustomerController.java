@@ -24,26 +24,27 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+
+
 public class CustomerController implements Initializable {
 
-    private int userId;
+    private int         userId;
 
-    private List showtimes;
+    private List        showtimes;
 
-    private HBox hBox;
-
-    @FXML
-    private ScrollPane scrollPane;
-
+    private HBox        hBox;
 
     @FXML
-    private GridPane grid;
+    private ScrollPane  scrollPane;
 
     @FXML
-    private ImageView imageView;
+    private GridPane    grid;
 
     @FXML
-    private Image image;
+    private ImageView   imageView;
+
+    @FXML
+    private Image       image;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -54,18 +55,14 @@ public class CustomerController implements Initializable {
         grid.setHgap(10);
         grid.setVgap(10);
 
-        ShowtimeService showtimeService = new ShowtimeService();
-
         showtimes = new ArrayList<Showtime>();
+
+        ShowtimeService showtimeService = new ShowtimeService();
 
         showtimes = showtimeService.getAll();
 
-        final int columns = 4;
-        final int rows = (showtimes.size() / columns) + 1;
-
-        for (int i = 0; i < showtimes.size(); i++) {
-                    addImage(i, i, 1);
-        }
+        for (int i = 0; i < showtimes.size(); i++)
+            addImage(i, i, 1);
 
         scrollPane.setContent(grid);
     }
@@ -79,6 +76,7 @@ public class CustomerController implements Initializable {
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
         imageView = new ImageView();
         imageView.setFitWidth(220);
         imageView.setFitHeight(330);
@@ -92,7 +90,7 @@ public class CustomerController implements Initializable {
 
             FXMLLoader loader = OpenForm.openNewForm("/SelectedMoviePage.fxml", "Booking page");
             SelectedMovieController next = loader.getController();
-            next.setInfo(userId,showtime.getId());
+            next.setInfo(userId, showtime.getId());
 
             CloseForm.closeFormMouseEvent(event);
 

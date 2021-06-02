@@ -1,45 +1,39 @@
 package controllers;
 
-        import entities.ShowtimeSeat;
-        import enums.SeatState;
-        import javafx.event.ActionEvent;
-        import javafx.fxml.FXML;
-        import javafx.fxml.FXMLLoader;
-        import javafx.fxml.Initializable;
-        import javafx.geometry.HPos;
-        import javafx.geometry.Insets;
-        import javafx.geometry.VPos;
-        import javafx.scene.Parent;
-        import javafx.scene.Scene;
-        import javafx.scene.control.Label;
-        import javafx.scene.control.ScrollPane;
-        import javafx.scene.image.Image;
-        import javafx.scene.layout.GridPane;
-        import javafx.scene.layout.HBox;
-        import javafx.stage.Stage;
-        import services.ShowtimeSeatService;
-        import utils.CloseForm;
-        import utils.OpenForm;
-        import java.net.URL;
-        import java.util.ArrayList;
-        import java.util.List;
-        import java.util.ResourceBundle;
+import entities.ShowtimeSeat;
+import enums.SeatState;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.geometry.HPos;
+import javafx.geometry.Insets;
+import javafx.geometry.VPos;
+import javafx.scene.control.Label;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
+import services.ShowtimeSeatService;
+import utils.CloseForm;
+import utils.OpenForm;
+
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.ResourceBundle;
 
 public class HallController implements Initializable {
 
-    private final String bookedSeatIcon = "src/main/resources/Images/BookedSeatIcon.png";
-    private final String reservedSeatIcon = "src/main/resources/Images/ReservedSeatIcon.png";
-    private final String emptySeatIcon = "src/main/resources/Images/EmptySeatIcon.png";
+    private int     userId;
 
-    private int userId;
+    private List    seats;
 
-    private List seats;
+    private List    selectedSeats;
 
-    private List selectedSeats;
+    private HBox    hBox;
 
-    private HBox hBox;
-
-    private int showtimeId;
+    private int     showtimeId;
 
     @FXML
     private Label pricePerTicket;
@@ -59,8 +53,6 @@ public class HallController implements Initializable {
     @FXML
     private SeatView seatView;
 
-    @FXML
-    private Image image;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -121,7 +113,7 @@ public class HallController implements Initializable {
     @FXML
     public void bookSeats(ActionEvent event) {
 
-        if(selectedSeats.size() == 0)
+        if (selectedSeats.size() == 0)
             return;
 
         FXMLLoader loader = OpenForm.openNewFormOnTop("/Ticket.fxml", "Tickets");

@@ -9,9 +9,10 @@ import java.util.List;
 
 public abstract class BaseDAO<EntityClass extends Serializable> {
 
-    private final EntityManager entityManager = MyEntityManager.getEntityManager();
     //Members
     //------------------------------------
+    private final EntityManager entityManager = MyEntityManager.getEntityManager();
+
     private Class<EntityClass> entityClass;
 
     //Methods
@@ -65,8 +66,7 @@ public abstract class BaseDAO<EntityClass extends Serializable> {
 
         MyEntityManager.executeInsideTransaction(
                 entityManager -> entityManager.remove(
-                        entityManager.contains(entityClass) ?
-                                entityClass : entityManager.merge(entityClass)));
+                        entityManager.contains(entityClass) ? entityClass : entityManager.merge(entityClass)));
 
     }
 

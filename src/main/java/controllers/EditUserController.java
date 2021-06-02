@@ -1,6 +1,5 @@
 package controllers;
 
-import com.mysql.cj.x.protobuf.MysqlxCursor;
 import dao.implementation.UserDAO;
 import entities.User;
 import javafx.event.ActionEvent;
@@ -10,9 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.paint.Color;
-import javafx.stage.Stage;
 import utils.CloseForm;
-import utils.OpenForm;
 import validators.FieldValidator;
 
 import java.net.URL;
@@ -68,7 +65,6 @@ public class EditUserController implements Initializable {
     @FXML
     private Label secondNameLabel;
 
-    private int id;
     private User user;
 
     @Override
@@ -76,17 +72,17 @@ public class EditUserController implements Initializable {
     }
 
     public void setId(int id) {
-        this.id = id;
+
         UserDAO userDAO = new UserDAO();
         user = userDAO.findById(id);
 
-        email.setText(user.getEmail());
-        username.setText(user.getUsername());
-        password.setText(user.getPassword());
-        repeatPassword.setText(user.getPassword());
-        firstName.setText(user.getFirstName());
-        secondName.setText(user.getSecondName());
-        phoneNumber.setText(user.getPhoneNumber());
+        email.setText(          user.getEmail());
+        username.setText(       user.getUsername());
+        password.setText(       user.getPassword());
+        repeatPassword.setText( user.getPassword());
+        firstName.setText(      user.getFirstName());
+        secondName.setText(     user.getSecondName());
+        phoneNumber.setText(    user.getPhoneNumber());
 
         label.setText("Edit user " + user.getUsername());
     }

@@ -6,7 +6,6 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -128,7 +127,7 @@ public class TicketController implements Initializable {
         for (Object o : seats) {
 
             br++;
-            if(br%2 ==0)
+            if (br % 2 == 0)
                 reservedSeats += "\n";
 
             ShowtimeSeat seat = (ShowtimeSeat) o;

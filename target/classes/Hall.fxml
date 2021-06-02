@@ -3,92 +3,109 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
-
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="674.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.HallController">
-   <top>
-      <GridPane prefHeight="63.0" prefWidth="1010.0" style="-fx-background-color: #d62bd1;" BorderPane.alignment="CENTER">
-        <columnConstraints>
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="80.0" />
-          <ColumnConstraints hgrow="SOMETIMES" maxWidth="873.0" minWidth="10.0" prefWidth="827.0" />
-            <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="100.0" />
-        </columnConstraints>
-        <rowConstraints>
-          <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-        </rowConstraints>
-         <children>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
-               <children>
-                  <Button layoutY="-2.0" mnemonicParsing="false" onAction="#back" prefHeight="67.0" prefWidth="81.0" style="-fx-background-color: d66fd3;" text="Back">
-                     <font>
-                        <Font name="Tw Cen MT" size="25.0" />
-                     </font></Button>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="639.0" GridPane.columnIndex="1">
-               <children>
-                  <Label layoutX="109.0" layoutY="8.0" prefHeight="48.0" prefWidth="614.0" style="-fx-background-color: #d62bd1; -fx-alignment: center;" text="Choose your seats:">
-                     <font>
-                        <Font name="Tw Cen MT Condensed" size="42.0" />
-                     </font>
-                  </Label>
-               </children>
-            </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
-               <children>
-                  <Button layoutY="1.0" mnemonicParsing="false" onAction="#logout" prefHeight="62.0" prefWidth="101.0" style="-fx-background-color: d66fd3;" text="Logout">
-                     <font>
-                        <Font name="Tw Cen MT" size="25.0" />
-                     </font></Button>
-               </children>
-            </AnchorPane>
-         </children>
-      </GridPane>
-   </top>
-   <center>
-      <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="608.0" prefWidth="1007.0" style="-fx-background-color: white;">
-               <children>
-                  <Label layoutX="41.0" layoutY="478.0" text="Number of seats:">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Label layoutX="316.0" layoutY="528.0" text="Total price:">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <GridPane fx:id="grid" layoutX="85.0" layoutY="58.0" prefHeight="420.0" prefWidth="837.0" style="-fx-background-color: white;">
-                     <columnConstraints>
-                        <ColumnConstraints />
-                     </columnConstraints>
-                     <rowConstraints>
-                        <RowConstraints />
-                        <RowConstraints />
-                     </rowConstraints>
-                  </GridPane>
-                  <Label fx:id="seatCount" layoutX="184.0" layoutY="478.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Label layoutX="316.0" layoutY="478.0" text="Price per ticket:">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Label fx:id="pricePerTicket" layoutX="449.0" layoutY="478.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Label fx:id="totalPrice" layoutX="448.0" layoutY="528.0">
-                     <font>
-                        <Font size="18.0" />
-                     </font></Label>
-                  <Button layoutX="787.0" layoutY="492.0" mnemonicParsing="false" onAction="#bookSeats" prefHeight="53.0" prefWidth="136.0" style="-fx-background-color: d66fd3;" text="Book">
-                     <font>
-                        <Font name="Tw Cen MT" size="29.0" />
-                     </font></Button>
-               </children>
-            </AnchorPane>
-        </content>
-      </ScrollPane>
-   </center>
+<BorderPane xmlns:fx="http://javafx.com/fxml/1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity"
+            prefHeight="674.0" prefWidth="1010.0" xmlns="http://javafx.com/javafx/11.0.1"
+            fx:controller="controllers.HallController">
+    <top>
+        <GridPane prefHeight="63.0" prefWidth="1010.0" style="-fx-background-color: #d62bd1;"
+                  BorderPane.alignment="CENTER">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="345.0" minWidth="10.0" prefWidth="80.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="873.0" minWidth="10.0" prefWidth="827.0"/>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="639.0" minWidth="10.0" prefWidth="100.0"/>
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES"/>
+            </rowConstraints>
+            <children>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                    <children>
+                        <Button layoutY="-2.0" mnemonicParsing="false" onAction="#back" prefHeight="67.0"
+                                prefWidth="81.0" style="-fx-background-color: d66fd3;" text="Back">
+                            <font>
+                                <Font name="Tw Cen MT" size="25.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="639.0" GridPane.columnIndex="1">
+                    <children>
+                        <Label layoutX="109.0" layoutY="8.0" prefHeight="48.0" prefWidth="614.0"
+                               style="-fx-background-color: #d62bd1; -fx-alignment: center;" text="Choose your seats:">
+                            <font>
+                                <Font name="Tw Cen MT Condensed" size="42.0"/>
+                            </font>
+                        </Label>
+                    </children>
+                </AnchorPane>
+                <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="2">
+                    <children>
+                        <Button layoutY="1.0" mnemonicParsing="false" onAction="#logout" prefHeight="62.0"
+                                prefWidth="101.0" style="-fx-background-color: d66fd3;" text="Logout">
+                            <font>
+                                <Font name="Tw Cen MT" size="25.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </GridPane>
+    </top>
+    <center>
+        <ScrollPane fx:id="scrollPane" prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
+            <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="608.0" prefWidth="1007.0"
+                            style="-fx-background-color: white;">
+                    <children>
+                        <Label layoutX="41.0" layoutY="478.0" text="Number of seats:">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="316.0" layoutY="528.0" text="Total price:">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <GridPane fx:id="grid" layoutX="85.0" layoutY="58.0" prefHeight="420.0" prefWidth="837.0"
+                                  style="-fx-background-color: white;">
+                            <columnConstraints>
+                                <ColumnConstraints/>
+                            </columnConstraints>
+                            <rowConstraints>
+                                <RowConstraints/>
+                                <RowConstraints/>
+                            </rowConstraints>
+                        </GridPane>
+                        <Label fx:id="seatCount" layoutX="184.0" layoutY="478.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label layoutX="316.0" layoutY="478.0" text="Price per ticket:">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="pricePerTicket" layoutX="449.0" layoutY="478.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Label fx:id="totalPrice" layoutX="448.0" layoutY="528.0">
+                            <font>
+                                <Font size="18.0"/>
+                            </font>
+                        </Label>
+                        <Button layoutX="787.0" layoutY="492.0" mnemonicParsing="false" onAction="#bookSeats"
+                                prefHeight="53.0" prefWidth="136.0" style="-fx-background-color: d66fd3;" text="Book">
+                            <font>
+                                <Font name="Tw Cen MT" size="29.0"/>
+                            </font>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </content>
+        </ScrollPane>
+    </center>
 </BorderPane>

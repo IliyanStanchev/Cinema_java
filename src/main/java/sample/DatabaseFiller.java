@@ -56,7 +56,7 @@ public class DatabaseFiller {
 
         Rating ratingGodzilla = ratingDAO.saveOrUpdate(new Rating(0, 0, 0));
         Rating ratingMortalKombat = ratingDAO.saveOrUpdate(new Rating(0, 0, 0));
-        Rating ratingFast9  = ratingDAO.saveOrUpdate(new Rating(0,0,0));
+        Rating ratingFast9 = ratingDAO.saveOrUpdate(new Rating(0, 0, 0));
 
 
         Movie godzillaVsKong = movieDAO.saveOrUpdate(new Movie(0,
@@ -117,7 +117,6 @@ public class DatabaseFiller {
                 9.50,
                 fast9,
                 movieDimension4D));
-
 
         RowDAO rowDAO = new RowDAO();
 
